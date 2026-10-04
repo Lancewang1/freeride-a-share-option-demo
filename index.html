@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FREERIDE A股场外普通欧式认购与波动率曲面研究演示">
+  <title>FREERIDE · A股期权定价研究 Demo</title>
+  <style>
+    :root {
+      --ink: #132a3a;
+      --muted: #617585;
+      --line: #d9e6ec;
+      --paper: #f5f9fb;
+      --card: #ffffff;
+      --teal: #087f72;
+      --teal-dark: #075b56;
+      --gold: #c58b29;
+      --blue: #2e6ea6;
+      --shadow: 0 16px 40px rgba(26, 62, 77, .08);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 15px/1.7 "Segoe UI", "Microsoft YaHei", sans-serif; }
+    a { color: var(--teal-dark); }
+    .wrap { max-width: 1180px; margin: auto; padding: 28px 22px 64px; }
+    .hero { padding: 42px 0 30px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 28px; align-items: end; }
+    .eyebrow { color: var(--teal); letter-spacing: .18em; font-size: 12px; font-weight: 700; }
+    h1 { margin: 9px 0 12px; font-size: clamp(31px, 5vw, 58px); line-height: 1.08; letter-spacing: -.03em; }
+    h2 { margin: 0 0 10px; font-size: 23px; line-height: 1.25; }
+    h3 { margin: 0 0 6px; font-size: 17px; }
+    p { margin: 8px 0; color: var(--muted); }
+    .hero p { max-width: 760px; font-size: 17px; }
+    .stamp { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 18px; box-shadow: var(--shadow); }
+    .stamp strong { display: block; color: var(--teal-dark); font-size: 28px; line-height: 1.1; }
+    .stamp span { color: var(--muted); font-size: 13px; }
+    .notice { border-left: 4px solid var(--gold); background: #fffaf0; padding: 14px 17px; border-radius: 8px; color: #674d1e; margin: 12px 0 25px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 21px; box-shadow: var(--shadow); }
+    .metric { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #edf3f5; padding: 10px 0; }
+    .metric:last-child { border-bottom: 0; padding-bottom: 0; }
+    .metric b { color: var(--teal-dark); font-size: 20px; white-space: nowrap; }
+    .metric span { color: var(--muted); }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
+    .step { min-height: 128px; border: 1px solid var(--line); border-radius: 13px; padding: 14px; background: linear-gradient(150deg, #fff, #f4fbfa); }
+    .step em { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; background: var(--teal); font-style: normal; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 13px; margin: 0; }
+    .bar-row { display: grid; grid-template-columns: 105px 1fr 76px; gap: 10px; align-items: center; margin: 12px 0; }
+    .bar-bg { height: 13px; background: #eaf1f4; border-radius: 99px; overflow: hidden; }
+    .bar { height: 100%; border-radius: 99px; background: var(--teal); }
+    .bar.gold { background: var(--gold); }
+    .bar.blue { background: var(--blue); }
+    .bar-row small { color: var(--muted); }
+    code { padding: 2px 5px; border-radius: 5px; background: #edf4f6; color: #365465; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .button { display: inline-block; padding: 10px 15px; border-radius: 9px; background: var(--teal); color: #fff; text-decoration: none; font-weight: 700; }
+    .button.secondary { background: #e7f2f1; color: var(--teal-dark); }
+    .button:hover { filter: brightness(.95); }
+    ul { margin: 9px 0 0; padding-left: 20px; color: var(--muted); }
+    li { margin: 4px 0; }
+    .small { font-size: 13px; }
+    footer { color: var(--muted); border-top: 1px solid var(--line); margin-top: 34px; padding-top: 18px; font-size: 13px; }
+    @media (max-width: 850px) { .hero, .grid.two { grid-template-columns: 1fr; } .grid { grid-template-columns: 1fr 1fr; } .flow { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .wrap { padding: 18px 14px 45px; } .grid, .flow { grid-template-columns: 1fr; } .bar-row { grid-template-columns: 88px 1fr 67px; gap: 7px; font-size: 13px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">FREERIDE / DERIVATIVE PRICING RESEARCH</div>
+        <h1>A股个股期权定价器</h1>
+        <p>一个可审计的研究型演示：从历史行情生成独立波动率先验，接入上市 ETF 风险中性曲面，再用 SOL 卖价等效 IV 校准普通欧式认购的最终卖价。</p>
+        <div class="actions">
+          <a class="button" href="a-share-option-demo.html">打开 A 股 SOL / IV 查看器</a>
+          <a class="button secondary" href="etf-surface-demo.html">打开 ETF 风险中性曲面</a>
+        </div>
+      </div>
+      <div class="stamp"><strong>Research MVP</strong><span>数据截点：2026-08-13 SOL；上市曲面快照至 2026-09-24</span></div>
+    </section>
+
+    <div class="notice"><b>公开演示边界：</b>页面是静态研究展示，不连接 API、不保存凭证，也不是可执行交易报价。SOL 的 IV 包含报价方商业影响；未公告股息、真实借券、精确零息曲线和 2027 年交易日历仍需补充。</div>
+
+    <section class="grid">
+      <article class="card"><h3>产品范围</h3><p>人民币普通欧式认购、现金结算，无障碍和敲出。本金为 <code>S₀ × 股数</code>，Final Offer 是包含商业加点的卖价。</p></article>
+      <article class="card"><h3>数据规模</h3><p>SOL：5,017 个代码、210,707 条报价。历史行情：979,547 行、5,589 个代码。上市 ETF 曲面：6 个市场快照。</p></article>
+      <article class="card"><h3>核心假设</h3><p>BUS/252 方差时间、交易所交易日历、权利金 T+1、收益 T+2；利率、股息和借券成本均保留为可调参数。</p></article>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>模型已经完成什么</h2>
+      <div class="flow">
+        <div class="step"><em>1</em><h3>独立基础波动率</h3><p>LightGBM 使用 RV、趋势、成交额、涨跌停频率、市场状态等 point-in-time 特征，预测未来 1–4M realized volatility。</p></div>
+        <div class="step"><em>2</em><h3>P → Q 桥</h3><p>用上市 ETF ATM IV 与 ETF realized RV 的风险溢价构造可配置桥接，并按曲面质量降级。</p></div>
+        <div class="step"><em>3</em><h3>SOL 等效 IV 校准</h3><p>在同一 carry 和 Black 现金结算核下，把 SOL Final Offer 反解为 offer-equivalent IV，训练报价调整量。</p></div>
+        <div class="step"><em>4</em><h3>曲面约束与报价</h3><p>预测结果经过执行价单调性、凸性和 intrinsic/upper bounds 约束，再回代为最终卖价。</p></div>
+      </div>
+    </section>
+
+    <section class="grid two" style="margin-top:16px">
+      <article class="card">
+        <h2>2026-08-13 横截面留组结果</h2>
+        <p class="small">误差均为与 SOL 的平均绝对价格误差，单位是本金 bp；约 20% 的报价模板完整留出。</p>
+        <div class="bar-row"><span>基准模型</span><div class="bar-bg"><div class="bar gold" style="width:100%"></div></div><b>164.64 bp</b></div>
+        <div class="bar-row"><span><code>base_iv_q</code></span><div class="bar-bg"><div class="bar blue" style="width:103%"></div></div><b>169.30 bp</b></div>
+        <div class="bar-row"><span>SOL 调整后</span><div class="bar-bg"><div class="bar" style="width:38.1%"></div></div><b>62.80 bp</b></div>
+        <p class="small">调整后的 IV MAE 约为 4.08 vol 点。该结果是单日横截面诊断，不是未来日期预测证明。</p>
+      </article>
+      <article class="card">
+        <h2>多日上市曲面 OOS</h2>
+        <div class="metric"><span>完整股票观测</span><b>153,980</b></div>
+        <div class="metric"><span>完整期限</span><b>1–3M</b></div>
+        <div class="metric"><span>快照日期</span><b>4 / 6</b></div>
+        <div class="metric"><span>ETF transfer check</span><b>12</b></div>
+        <p class="small">股票样本支持正向 P→Q 调整，但 ETF 样本太少，生产权重尚未锁定；<code>w=0.25</code> 仅保留为研究参数。</p>
+      </article>
+    </section>
+
+    <section class="grid two" style="margin-top:16px">
+      <article class="card">
+        <h2>质量降级规则</h2>
+        <ul>
+          <li><b>green：</b>拟合正常、无日历/蝶式违规、年龄 ≤ 5 天、两只 ETF 均有数据，权重 1.0。</li>
+          <li><b>amber：</b>硬检查通过但只有一个 ETF，或年龄 6–20 天，权重 0.5。</li>
+          <li><b>red：</b>质量异常、套利诊断违规、年龄 > 20 天或关键字段缺失，权重 0。</li>
+          <li>未来实现波动率窗口未完成的日期和期限保留 pending，不进入误差分母。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>下一步</h2>
+        <ul>
+          <li>等待 2026-09-10、2026-09-24 的 1–4M 未来标签完成。</li>
+          <li>补齐复权、公司行为、停牌、真实借券和未公告股息处理。</li>
+          <li>取得更多报价日期后，重新训练第二层并锁定 P→Q 权重。</li>
+          <li>补充 2027 交易日历后再处理 5–6M。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>可追溯证据</h2>
+      <p>下面的文件随站点发布，记录训练哈希、point-in-time cutoff、质量规则和 OOS 权重网格。</p>
+      <div class="actions">
+        <a class="button secondary" href="evidence/model_training_report_20260813.json">训练报告 JSON</a>
+        <a class="button secondary" href="evidence/listed_rn_oos_validation.json">OOS 验证 JSON</a>
+        <a class="button secondary" href="evidence/listed_rn_oos_weight_summary.csv">权重汇总 CSV</a>
+      </div>
+    </section>
+
+    <footer>
+      FREERIDE · A-share OTC option research demo · Static GitHub Pages build · Last updated 2026-10-04<br>
+      页面输出仅用于研究和模型审阅，不构成投资建议或可执行交易报价。
+    </footer>
+  </main>
+</body>
+</html>
