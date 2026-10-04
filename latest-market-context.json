@@ -1,0 +1,2372 @@
+{
+  "schema_version": 1,
+  "delivery": "PUBLISHED_SNAPSHOT_NOT_LIVE",
+  "published_at": "2026-10-04T23:23:12.359921+08:00",
+  "tickers": {
+    "000166": {
+      "schema_version": 1,
+      "ticker": "000166",
+      "ts_code": "000166.SZ",
+      "exchange": "SZSE",
+      "currency": "CNY",
+      "fetched_at": "2026-10-04T23:23:12.359930+08:00",
+      "quote": {
+        "price": 4.38,
+        "pre_close": 4.36,
+        "source": "TUSHARE_DAILY",
+        "trade_date": "2026-09-30",
+        "trade_time": "2026-09-30T15:00:00+08:00",
+        "kind": "LATEST_CLOSE",
+        "is_realtime": false,
+        "volume_shares": 41456073.0,
+        "turnover_cny": 181483466.15
+      },
+      "feed": {
+        "rt_k_status": "ACCESS_DENIED",
+        "fallback_reason": "ACCESS_DENIED",
+        "expected_completed_session": "2026-09-30",
+        "daily_lagging": false,
+        "market_state": "CLOSED",
+        "calendar_status": "AVAILABLE",
+        "adjustment_status": "AVAILABLE",
+        "poll_seconds": 30,
+        "errors": [
+          {
+            "api": "rt_k",
+            "status": "ACCESS_DENIED",
+            "code": 40203
+          }
+        ]
+      },
+      "history": {
+        "as_of": "2026-09-30",
+        "daily_rows": 263,
+        "source": "TUSHARE_DAILY_AND_ADJ_FACTOR"
+      },
+      "realized": {
+        "as_of": "2026-09-30",
+        "measure": "TRAILING_REALIZED_NOT_RISK_NEUTRAL_IV",
+        "nodes": [
+          {
+            "tenor_months": 1,
+            "lookback_observations": 21,
+            "value": 0.17508394904640273,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 2,
+            "lookback_observations": 42,
+            "value": 0.1533149948397817,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 3,
+            "lookback_observations": 63,
+            "value": 0.1781002927720099,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 4,
+            "lookback_observations": 84,
+            "value": 0.2405424653539716,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 5,
+            "lookback_observations": 105,
+            "value": 0.22997883935239205,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 6,
+            "lookback_observations": 126,
+            "value": 0.22128906029563356,
+            "status": "AVAILABLE"
+          }
+        ],
+        "method": "std(log(adj_close[t]/adj_close[t-1]), ddof=1)*sqrt(252)",
+        "clock": "BUS/252",
+        "observations": 263,
+        "suspension_caveat": "Lookbacks count available stock observations; suspension gaps can span multiple exchange days."
+      },
+      "dividends": {
+        "status": "FETCHED",
+        "future": [],
+        "history": [
+          {
+            "ex_date": "2026-08-19",
+            "pay_date": "2026-08-19",
+            "amount": 0.075,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2026-08-13",
+            "proposal_announcement_date": "2026-06-27",
+            "fiscal_period": "2025-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 4,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-12-24",
+            "pay_date": "2025-12-24",
+            "amount": 0.035,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-12-17",
+            "proposal_announcement_date": "2025-11-01",
+            "fiscal_period": "2025-06-30",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 7,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-08-13",
+            "pay_date": "2025-08-13",
+            "amount": 0.046,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-08-07",
+            "proposal_announcement_date": "2025-06-21",
+            "fiscal_period": "2024-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 10,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-12-18",
+            "pay_date": "2024-12-18",
+            "amount": 0.017,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-12-11",
+            "proposal_announcement_date": "2024-10-23",
+            "fiscal_period": "2024-06-30",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 13,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-08-20",
+            "pay_date": "2024-08-20",
+            "amount": 0.056,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-08-13",
+            "proposal_announcement_date": "2024-06-29",
+            "fiscal_period": "2023-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 16,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2023-08-11",
+            "pay_date": "2023-08-11",
+            "amount": 0.03,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2023-08-05",
+            "proposal_announcement_date": "2023-06-21",
+            "fiscal_period": "2022-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 21,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2022-08-05",
+            "pay_date": "2022-08-05",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2022-08-01",
+            "proposal_announcement_date": "2022-06-11",
+            "fiscal_period": "2021-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 26,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2021-07-23",
+            "pay_date": "2021-07-23",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2021-07-17",
+            "proposal_announcement_date": "2021-05-29",
+            "fiscal_period": "2020-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 31,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2020-08-20",
+            "pay_date": "2020-08-20",
+            "amount": 0.08,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2020-08-14",
+            "proposal_announcement_date": "2020-06-24",
+            "fiscal_period": "2019-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 36,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2019-05-17",
+            "pay_date": "2019-05-17",
+            "amount": 0.05,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2019-05-10",
+            "proposal_announcement_date": "2019-03-22",
+            "fiscal_period": "2018-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 41,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2018-06-27",
+            "pay_date": "2018-06-27",
+            "amount": 0.05,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2018-06-20",
+            "proposal_announcement_date": "2018-05-12",
+            "fiscal_period": "2017-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 44,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2017-06-16",
+            "pay_date": "2017-06-16",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2017-06-09",
+            "proposal_announcement_date": "2017-04-20",
+            "fiscal_period": "2016-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 46,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2016-07-06",
+            "pay_date": "2016-07-06",
+            "amount": 0.15,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2016-06-30",
+            "proposal_announcement_date": "2016-05-18",
+            "fiscal_period": "2015-12-31",
+            "stock_dividend_ratio": 0.35,
+            "source_row": 48,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          }
+        ],
+        "pending": [
+          {
+            "ann_date": "20260828",
+            "amount": 0.05,
+            "status": "预案",
+            "end_date": "20260630",
+            "source_row": 0
+          }
+        ],
+        "coverage": "Tushare dividend queried for selected security",
+        "future_status": "DECLARED_SCHEDULE_ONLY_UNANNOUNCED_DIVIDENDS_UNKNOWN"
+      },
+      "schedule": [
+        {
+          "tenor_months": 1,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-10-30",
+          "actual_expiry_date": "2026-10-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-11-03",
+          "variance_year_fraction": 0.06746031746031746,
+          "trading_days_to_expiry": 17,
+          "actual_calendar_days": 30,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 34,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 2,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-11-30",
+          "actual_expiry_date": "2026-11-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-12-02",
+          "variance_year_fraction": 0.15079365079365079,
+          "trading_days_to_expiry": 38,
+          "actual_calendar_days": 61,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 63,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 3,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-12-30",
+          "actual_expiry_date": "2026-12-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 4,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-01-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 5,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-02-28",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 6,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-03-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        }
+      ],
+      "model_state": {
+        "as_of": "2026-08-13",
+        "status": "NOT_REFRESHED_BY_LIVE_SPOT",
+        "retrained": false
+      },
+      "rate_state": {
+        "status": "CLIENT_INPUT_REQUIRED",
+        "source": "No live risk-free curve supplied by this feed"
+      },
+      "pricing_convention": {
+        "inception": "NEW_TRADE_AT_QUOTE_DATE",
+        "variance": "BUS/252_CLOSE_PROXY",
+        "intraday": "Intraday spot is a scenario; remaining fraction of today's variance is not modelled",
+        "premium": "T+1_EXCHANGE_DAYS",
+        "payoff": "EXPIRY_PLUS_2_EXCHANGE_DAYS"
+      },
+      "snapshot_id": "430de53619c741e497cad5ccf54271182a06e4b0cd7a0a47dd1feda20dda5b2e"
+    },
+    "000039": {
+      "schema_version": 1,
+      "ticker": "000039",
+      "ts_code": "000039.SZ",
+      "exchange": "SZSE",
+      "currency": "CNY",
+      "fetched_at": "2026-10-04T23:23:20.976771+08:00",
+      "quote": {
+        "price": 8.6,
+        "pre_close": 8.55,
+        "source": "TUSHARE_DAILY",
+        "trade_date": "2026-09-30",
+        "trade_time": "2026-09-30T15:00:00+08:00",
+        "kind": "LATEST_CLOSE",
+        "is_realtime": false,
+        "volume_shares": 10794669.0,
+        "turnover_cny": 92940288.6
+      },
+      "feed": {
+        "rt_k_status": "ACCESS_DENIED",
+        "fallback_reason": "ACCESS_DENIED",
+        "expected_completed_session": "2026-09-30",
+        "daily_lagging": false,
+        "market_state": "CLOSED",
+        "calendar_status": "AVAILABLE",
+        "adjustment_status": "AVAILABLE",
+        "poll_seconds": 30,
+        "errors": [
+          {
+            "api": "rt_k",
+            "status": "ACCESS_DENIED",
+            "code": 40203
+          }
+        ]
+      },
+      "history": {
+        "as_of": "2026-09-30",
+        "daily_rows": 263,
+        "source": "TUSHARE_DAILY_AND_ADJ_FACTOR"
+      },
+      "realized": {
+        "as_of": "2026-09-30",
+        "measure": "TRAILING_REALIZED_NOT_RISK_NEUTRAL_IV",
+        "nodes": [
+          {
+            "tenor_months": 1,
+            "lookback_observations": 21,
+            "value": 0.370711788767839,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 2,
+            "lookback_observations": 42,
+            "value": 0.39775030143547496,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 3,
+            "lookback_observations": 63,
+            "value": 0.44617044962711994,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 4,
+            "lookback_observations": 84,
+            "value": 0.4459803335108431,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 5,
+            "lookback_observations": 105,
+            "value": 0.48890303996018003,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 6,
+            "lookback_observations": 126,
+            "value": 0.4899994167298867,
+            "status": "AVAILABLE"
+          }
+        ],
+        "method": "std(log(adj_close[t]/adj_close[t-1]), ddof=1)*sqrt(252)",
+        "clock": "BUS/252",
+        "observations": 263,
+        "suspension_caveat": "Lookbacks count available stock observations; suspension gaps can span multiple exchange days."
+      },
+      "dividends": {
+        "status": "FETCHED",
+        "future": [],
+        "history": [
+          {
+            "ex_date": "2026-08-10",
+            "pay_date": "2026-08-10",
+            "amount": 0.179,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2026-08-04",
+            "proposal_announcement_date": "2026-06-17",
+            "fiscal_period": "2025-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 3,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-07-11",
+            "pay_date": "2025-07-11",
+            "amount": 0.176,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-07-05",
+            "proposal_announcement_date": "2025-05-16",
+            "fiscal_period": "2024-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 8,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-08-16",
+            "pay_date": "2024-08-16",
+            "amount": 0.022,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-08-09",
+            "proposal_announcement_date": "2024-06-27",
+            "fiscal_period": "2023-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 13,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2023-08-18",
+            "pay_date": "2023-08-18",
+            "amount": 0.18,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2023-08-11",
+            "proposal_announcement_date": "2023-06-29",
+            "fiscal_period": "2022-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 18,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2022-08-18",
+            "pay_date": "2022-08-18",
+            "amount": 0.69,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2022-08-11",
+            "proposal_announcement_date": "2022-06-29",
+            "fiscal_period": "2021-12-31",
+            "stock_dividend_ratio": 0.5,
+            "source_row": 23,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2021-07-20",
+            "pay_date": "2021-07-20",
+            "amount": 0.28,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2021-07-13",
+            "proposal_announcement_date": "2021-06-03",
+            "fiscal_period": "2020-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 28,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2020-06-24",
+            "pay_date": "2020-06-24",
+            "amount": 0.12,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2020-06-17",
+            "proposal_announcement_date": "2020-06-02",
+            "fiscal_period": "2019-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 33,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2019-06-28",
+            "pay_date": "2019-06-28",
+            "amount": 0.55,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2019-06-22",
+            "proposal_announcement_date": "2019-06-04",
+            "fiscal_period": "2018-12-31",
+            "stock_dividend_ratio": 0.2,
+            "source_row": 38,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2018-07-20",
+            "pay_date": "2018-07-20",
+            "amount": 0.27,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2018-07-13",
+            "proposal_announcement_date": "2018-06-09",
+            "fiscal_period": "2017-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 41,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2017-07-20",
+            "pay_date": "2017-07-20",
+            "amount": 0.06,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2017-07-12",
+            "proposal_announcement_date": "2017-06-10",
+            "fiscal_period": "2016-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 43,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2016-07-20",
+            "pay_date": "2016-07-20",
+            "amount": 0.22,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2016-07-13",
+            "proposal_announcement_date": "2016-06-01",
+            "fiscal_period": "2015-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 45,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2015-07-22",
+            "pay_date": "2015-07-22",
+            "amount": 0.31,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2015-07-15",
+            "proposal_announcement_date": "2015-06-09",
+            "fiscal_period": "2014-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 47,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2014-07-31",
+            "pay_date": "2014-07-31",
+            "amount": 0.27,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2014-07-24",
+            "proposal_announcement_date": "2014-06-30",
+            "fiscal_period": "2013-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 49,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2013-08-15",
+            "pay_date": "2013-08-15",
+            "amount": 0.23,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2013-08-09",
+            "proposal_announcement_date": "2013-06-29",
+            "fiscal_period": "2012-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 51,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2012-06-21",
+            "pay_date": "2012-06-21",
+            "amount": 0.46,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2012-06-14",
+            "proposal_announcement_date": "2012-05-26",
+            "fiscal_period": "2011-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 53,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2011-06-01",
+            "pay_date": "2011-06-01",
+            "amount": 0.35,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2011-05-25",
+            "proposal_announcement_date": "2011-04-14",
+            "fiscal_period": "2010-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 55,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2010-06-25",
+            "pay_date": "2010-06-25",
+            "amount": 0.12,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2010-06-17",
+            "proposal_announcement_date": "2010-04-27",
+            "fiscal_period": "2009-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 57,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2009-06-12",
+            "pay_date": "2009-06-12",
+            "amount": 0.15,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2009-06-05",
+            "proposal_announcement_date": "2009-04-21",
+            "fiscal_period": "2008-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 59,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2008-06-26",
+            "pay_date": "2008-06-26",
+            "amount": 0.5,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2008-06-19",
+            "proposal_announcement_date": "2008-04-29",
+            "fiscal_period": "2007-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 61,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2007-06-01",
+            "pay_date": "2007-06-01",
+            "amount": 0.43,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2007-05-25",
+            "proposal_announcement_date": "2007-04-24",
+            "fiscal_period": "2006-12-31",
+            "stock_dividend_ratio": 0.2,
+            "source_row": 63,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2006-07-20",
+            "pay_date": "2006-07-20",
+            "amount": 0.38,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2006-07-13",
+            "proposal_announcement_date": "2006-07-01",
+            "fiscal_period": "2005-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 65,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2005-04-25",
+            "pay_date": "2005-04-25",
+            "amount": 0.5,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2005-04-18",
+            "proposal_announcement_date": "2005-04-09",
+            "fiscal_period": "2004-12-31",
+            "stock_dividend_ratio": 1.0,
+            "source_row": 67,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2004-06-03",
+            "pay_date": "2004-06-03",
+            "amount": 0.38,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2004-05-26",
+            "proposal_announcement_date": "2004-04-22",
+            "fiscal_period": "2003-12-31",
+            "stock_dividend_ratio": 0.6,
+            "source_row": 69,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2002-06-13",
+            "pay_date": "2002-06-13",
+            "amount": 0.5,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2002-06-05",
+            "proposal_announcement_date": "2002-06-01",
+            "fiscal_period": "2001-12-31",
+            "stock_dividend_ratio": 0.5,
+            "source_row": 73,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2001-07-19",
+            "pay_date": "2001-07-20",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2001-07-12",
+            "proposal_announcement_date": "2001-05-22",
+            "fiscal_period": "2000-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 75,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2000-07-20",
+            "pay_date": "2000-07-21",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2000-07-13",
+            "proposal_announcement_date": "2000-05-20",
+            "fiscal_period": "1999-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 78,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "1999-07-30",
+            "pay_date": "1999-08-05",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "1999-07-22",
+            "proposal_announcement_date": "1999-06-01",
+            "fiscal_period": "1998-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 80,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "1998-06-30",
+            "pay_date": "1998-07-06",
+            "amount": 0.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "1998-06-23",
+            "proposal_announcement_date": "1998-05-12",
+            "fiscal_period": "1997-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 82,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "1997-06-19",
+            "pay_date": "1997-06-25",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "1997-06-13",
+            "proposal_announcement_date": "1997-05-17",
+            "fiscal_period": "1996-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 84,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "1996-06-11",
+            "pay_date": "1996-06-17",
+            "amount": 0.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "1996-06-04",
+            "proposal_announcement_date": "1996-05-10",
+            "fiscal_period": "1995-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 85,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "1995-08-02",
+            "pay_date": "1995-08-04",
+            "amount": 0.4,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "1995-07-21",
+            "proposal_announcement_date": "1995-03-02",
+            "fiscal_period": "1994-12-31",
+            "stock_dividend_ratio": 0.4,
+            "source_row": 86,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          }
+        ],
+        "pending": [],
+        "coverage": "Tushare dividend queried for selected security",
+        "future_status": "DECLARED_SCHEDULE_ONLY_UNANNOUNCED_DIVIDENDS_UNKNOWN"
+      },
+      "schedule": [
+        {
+          "tenor_months": 1,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-10-30",
+          "actual_expiry_date": "2026-10-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-11-03",
+          "variance_year_fraction": 0.06746031746031746,
+          "trading_days_to_expiry": 17,
+          "actual_calendar_days": 30,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 34,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 2,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-11-30",
+          "actual_expiry_date": "2026-11-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-12-02",
+          "variance_year_fraction": 0.15079365079365079,
+          "trading_days_to_expiry": 38,
+          "actual_calendar_days": 61,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 63,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 3,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-12-30",
+          "actual_expiry_date": "2026-12-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 4,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-01-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 5,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-02-28",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 6,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-03-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        }
+      ],
+      "model_state": {
+        "as_of": "2026-08-13",
+        "status": "NOT_REFRESHED_BY_LIVE_SPOT",
+        "retrained": false
+      },
+      "rate_state": {
+        "status": "CLIENT_INPUT_REQUIRED",
+        "source": "No live risk-free curve supplied by this feed"
+      },
+      "pricing_convention": {
+        "inception": "NEW_TRADE_AT_QUOTE_DATE",
+        "variance": "BUS/252_CLOSE_PROXY",
+        "intraday": "Intraday spot is a scenario; remaining fraction of today's variance is not modelled",
+        "premium": "T+1_EXCHANGE_DAYS",
+        "payoff": "EXPIRY_PLUS_2_EXCHANGE_DAYS"
+      },
+      "snapshot_id": "854d3603f6188afac8409ee49cf5ec09fc066167274d3a27ff134d58c9c5c03b"
+    },
+    "600000": {
+      "schema_version": 1,
+      "ticker": "600000",
+      "ts_code": "600000.SH",
+      "exchange": "SSE",
+      "currency": "CNY",
+      "fetched_at": "2026-10-04T23:23:25.173655+08:00",
+      "quote": {
+        "price": 9.48,
+        "pre_close": 9.18,
+        "source": "TUSHARE_DAILY",
+        "trade_date": "2026-09-30",
+        "trade_time": "2026-09-30T15:00:00+08:00",
+        "kind": "LATEST_CLOSE",
+        "is_realtime": false,
+        "volume_shares": 147484820.0,
+        "turnover_cny": 1386209937.0
+      },
+      "feed": {
+        "rt_k_status": "ACCESS_DENIED",
+        "fallback_reason": "ACCESS_DENIED",
+        "expected_completed_session": "2026-09-30",
+        "daily_lagging": false,
+        "market_state": "CLOSED",
+        "calendar_status": "AVAILABLE",
+        "adjustment_status": "AVAILABLE",
+        "poll_seconds": 30,
+        "errors": [
+          {
+            "api": "rt_k",
+            "status": "ACCESS_DENIED",
+            "code": 40203
+          }
+        ]
+      },
+      "history": {
+        "as_of": "2026-09-30",
+        "daily_rows": 263,
+        "source": "TUSHARE_DAILY_AND_ADJ_FACTOR"
+      },
+      "realized": {
+        "as_of": "2026-09-30",
+        "measure": "TRAILING_REALIZED_NOT_RISK_NEUTRAL_IV",
+        "nodes": [
+          {
+            "tenor_months": 1,
+            "lookback_observations": 21,
+            "value": 0.21971056812749895,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 2,
+            "lookback_observations": 42,
+            "value": 0.20564454183052272,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 3,
+            "lookback_observations": 63,
+            "value": 0.22322356545636765,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 4,
+            "lookback_observations": 84,
+            "value": 0.22728660165720616,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 5,
+            "lookback_observations": 105,
+            "value": 0.21820244170827996,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 6,
+            "lookback_observations": 126,
+            "value": 0.2103406542762502,
+            "status": "AVAILABLE"
+          }
+        ],
+        "method": "std(log(adj_close[t]/adj_close[t-1]), ddof=1)*sqrt(252)",
+        "clock": "BUS/252",
+        "observations": 263,
+        "suspension_caveat": "Lookbacks count available stock observations; suspension gaps can span multiple exchange days."
+      },
+      "dividends": {
+        "status": "FETCHED",
+        "future": [],
+        "history": [
+          {
+            "ex_date": "2026-07-16",
+            "pay_date": "2026-07-16",
+            "amount": 0.42,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2026-07-10",
+            "proposal_announcement_date": "2026-06-27",
+            "fiscal_period": "2025-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 3,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-07-16",
+            "pay_date": "2025-07-16",
+            "amount": 0.41,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-07-10",
+            "proposal_announcement_date": "2025-06-28",
+            "fiscal_period": "2024-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 8,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-07-18",
+            "pay_date": "2024-07-18",
+            "amount": 0.321,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-07-11",
+            "proposal_announcement_date": "2024-06-29",
+            "fiscal_period": "2023-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 13,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2023-07-21",
+            "pay_date": "2023-07-21",
+            "amount": 0.32,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2023-07-13",
+            "proposal_announcement_date": "2023-06-29",
+            "fiscal_period": "2022-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 18,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2022-07-21",
+            "pay_date": "2022-07-21",
+            "amount": 0.41,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2022-07-13",
+            "proposal_announcement_date": "2022-06-18",
+            "fiscal_period": "2021-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 23,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2021-07-21",
+            "pay_date": "2021-07-21",
+            "amount": 0.48,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2021-07-13",
+            "proposal_announcement_date": "2021-06-12",
+            "fiscal_period": "2020-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 28,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2020-07-23",
+            "pay_date": "2020-07-23",
+            "amount": 0.6,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2020-07-16",
+            "proposal_announcement_date": "2020-06-20",
+            "fiscal_period": "2019-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 33,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2019-06-11",
+            "pay_date": "2019-06-11",
+            "amount": 0.35,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2019-06-04",
+            "proposal_announcement_date": "2019-04-25",
+            "fiscal_period": "2018-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 38,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2018-07-13",
+            "pay_date": "2018-07-13",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2018-07-06",
+            "proposal_announcement_date": "2018-05-29",
+            "fiscal_period": "2017-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 41,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2017-05-25",
+            "pay_date": "2017-05-25",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2017-05-19",
+            "proposal_announcement_date": "2017-04-26",
+            "fiscal_period": "2016-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 43,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2016-06-23",
+            "pay_date": "2016-06-23",
+            "amount": 0.515,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2016-06-16",
+            "proposal_announcement_date": "2016-04-29",
+            "fiscal_period": "2015-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 45,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2015-06-23",
+            "pay_date": "2015-06-23",
+            "amount": 0.757,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2015-06-16",
+            "proposal_announcement_date": "2015-05-16",
+            "fiscal_period": "2014-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 47,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2014-06-24",
+            "pay_date": "2014-06-24",
+            "amount": 0.66,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2014-06-17",
+            "proposal_announcement_date": "2014-05-27",
+            "fiscal_period": "2013-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 49,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2013-06-03",
+            "pay_date": "2013-06-07",
+            "amount": 0.55,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2013-05-27",
+            "proposal_announcement_date": "2013-05-17",
+            "fiscal_period": "2012-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 51,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2012-06-26",
+            "pay_date": "2012-06-29",
+            "amount": 0.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2012-06-19",
+            "proposal_announcement_date": "2012-06-14",
+            "fiscal_period": "2011-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 53,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2011-06-03",
+            "pay_date": "2011-06-13",
+            "amount": 0.16,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2011-05-30",
+            "proposal_announcement_date": "2011-04-29",
+            "fiscal_period": "2010-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 55,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2010-06-10",
+            "pay_date": "2010-06-18",
+            "amount": 0.15,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2010-06-04",
+            "proposal_announcement_date": "2010-04-29",
+            "fiscal_period": "2009-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 57,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2009-06-09",
+            "pay_date": "2009-06-16",
+            "amount": 0.23,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2009-06-03",
+            "proposal_announcement_date": "2009-05-06",
+            "fiscal_period": "2008-12-31",
+            "stock_dividend_ratio": 0.4,
+            "source_row": 59,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2008-04-24",
+            "pay_date": "2008-04-29",
+            "amount": 0.16,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2008-04-18",
+            "proposal_announcement_date": "2008-03-20",
+            "fiscal_period": "2007-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 61,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2007-07-18",
+            "pay_date": "2007-07-20",
+            "amount": 0.15,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2007-07-13",
+            "proposal_announcement_date": "2007-05-23",
+            "fiscal_period": "2006-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 63,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2006-05-25",
+            "pay_date": "2006-05-29",
+            "amount": 0.13,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2006-05-19",
+            "proposal_announcement_date": "2006-04-10",
+            "fiscal_period": "2005-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 65,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2005-05-12",
+            "pay_date": "2005-05-16",
+            "amount": 0.12,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2005-04-30",
+            "proposal_announcement_date": "2005-04-28",
+            "fiscal_period": "2004-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 67,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2004-05-20",
+            "pay_date": "2004-05-25",
+            "amount": 0.11,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2004-05-15",
+            "proposal_announcement_date": "2004-03-31",
+            "fiscal_period": "2003-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 69,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2003-06-23",
+            "pay_date": "2003-06-27",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2003-06-17",
+            "proposal_announcement_date": "2003-04-30",
+            "fiscal_period": "2002-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 71,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2002-08-22",
+            "pay_date": "2002-08-27",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2002-08-17",
+            "proposal_announcement_date": "2002-06-29",
+            "fiscal_period": "2001-12-31",
+            "stock_dividend_ratio": 0.5,
+            "source_row": 73,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2000-07-06",
+            "pay_date": "2000-07-07",
+            "amount": 0.15,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2000-06-30",
+            "proposal_announcement_date": "2000-05-09",
+            "fiscal_period": "1999-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 77,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          }
+        ],
+        "pending": [],
+        "coverage": "Tushare dividend queried for selected security",
+        "future_status": "DECLARED_SCHEDULE_ONLY_UNANNOUNCED_DIVIDENDS_UNKNOWN"
+      },
+      "schedule": [
+        {
+          "tenor_months": 1,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-10-30",
+          "actual_expiry_date": "2026-10-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-11-03",
+          "variance_year_fraction": 0.06746031746031746,
+          "trading_days_to_expiry": 17,
+          "actual_calendar_days": 30,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 34,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 2,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-11-30",
+          "actual_expiry_date": "2026-11-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-12-02",
+          "variance_year_fraction": 0.15079365079365079,
+          "trading_days_to_expiry": 38,
+          "actual_calendar_days": 61,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 63,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 3,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-12-30",
+          "actual_expiry_date": "2026-12-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 4,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-01-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 5,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-02-28",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 6,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-03-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        }
+      ],
+      "model_state": {
+        "as_of": "2026-08-13",
+        "status": "NOT_REFRESHED_BY_LIVE_SPOT",
+        "retrained": false
+      },
+      "rate_state": {
+        "status": "CLIENT_INPUT_REQUIRED",
+        "source": "No live risk-free curve supplied by this feed"
+      },
+      "pricing_convention": {
+        "inception": "NEW_TRADE_AT_QUOTE_DATE",
+        "variance": "BUS/252_CLOSE_PROXY",
+        "intraday": "Intraday spot is a scenario; remaining fraction of today's variance is not modelled",
+        "premium": "T+1_EXCHANGE_DAYS",
+        "payoff": "EXPIRY_PLUS_2_EXCHANGE_DAYS"
+      },
+      "snapshot_id": "6485ae0f39ba1bc92c594f6ab2df4064eead277c33998f21db130870d2d2e425"
+    },
+    "600519": {
+      "schema_version": 1,
+      "ticker": "600519",
+      "ts_code": "600519.SH",
+      "exchange": "SSE",
+      "currency": "CNY",
+      "fetched_at": "2026-10-04T23:23:34.230130+08:00",
+      "quote": {
+        "price": 1258.62,
+        "pre_close": 1235.58,
+        "source": "TUSHARE_DAILY",
+        "trade_date": "2026-09-30",
+        "trade_time": "2026-09-30T15:00:00+08:00",
+        "kind": "LATEST_CLOSE",
+        "is_realtime": false,
+        "volume_shares": 3833098.0000000005,
+        "turnover_cny": 4797246636.0
+      },
+      "feed": {
+        "rt_k_status": "ACCESS_DENIED",
+        "fallback_reason": "ACCESS_DENIED",
+        "expected_completed_session": "2026-09-30",
+        "daily_lagging": false,
+        "market_state": "CLOSED",
+        "calendar_status": "AVAILABLE",
+        "adjustment_status": "AVAILABLE",
+        "poll_seconds": 30,
+        "errors": [
+          {
+            "api": "rt_k",
+            "status": "ACCESS_DENIED",
+            "code": 40203
+          }
+        ]
+      },
+      "history": {
+        "as_of": "2026-09-30",
+        "daily_rows": 263,
+        "source": "TUSHARE_DAILY_AND_ADJ_FACTOR"
+      },
+      "realized": {
+        "as_of": "2026-09-30",
+        "measure": "TRAILING_REALIZED_NOT_RISK_NEUTRAL_IV",
+        "nodes": [
+          {
+            "tenor_months": 1,
+            "lookback_observations": 21,
+            "value": 0.1493406499519373,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 2,
+            "lookback_observations": 42,
+            "value": 0.19414733539065096,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 3,
+            "lookback_observations": 63,
+            "value": 0.2339533201139231,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 4,
+            "lookback_observations": 84,
+            "value": 0.22815206567662438,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 5,
+            "lookback_observations": 105,
+            "value": 0.22325127236185,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 6,
+            "lookback_observations": 126,
+            "value": 0.22735423453739176,
+            "status": "AVAILABLE"
+          }
+        ],
+        "method": "std(log(adj_close[t]/adj_close[t-1]), ddof=1)*sqrt(252)",
+        "clock": "BUS/252",
+        "observations": 263,
+        "suspension_caveat": "Lookbacks count available stock observations; suspension gaps can span multiple exchange days."
+      },
+      "dividends": {
+        "status": "FETCHED",
+        "future": [],
+        "history": [
+          {
+            "ex_date": "2026-06-26",
+            "pay_date": "2026-06-26",
+            "amount": 28.02423,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2026-06-22",
+            "proposal_announcement_date": "2026-04-17",
+            "fiscal_period": "2025-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 5,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-12-19",
+            "pay_date": "2025-12-19",
+            "amount": 23.957,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-12-11",
+            "proposal_announcement_date": "2025-11-29",
+            "fiscal_period": "2025-09-30",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 9,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-06-26",
+            "pay_date": "2025-06-26",
+            "amount": 27.673,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-06-20",
+            "proposal_announcement_date": "2025-04-03",
+            "fiscal_period": "2024-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 15,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-12-20",
+            "pay_date": "2024-12-20",
+            "amount": 23.882,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-12-14",
+            "proposal_announcement_date": "2024-11-28",
+            "fiscal_period": "2024-09-30",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 19,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-06-19",
+            "pay_date": "2024-06-19",
+            "amount": 30.876,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-06-12",
+            "proposal_announcement_date": "2024-05-30",
+            "fiscal_period": "2023-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 24,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2023-12-20",
+            "pay_date": "2023-12-20",
+            "amount": 19.106,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2023-12-14",
+            "proposal_announcement_date": "2023-12-07",
+            "fiscal_period": "2023-11-21",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 25,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2023-06-30",
+            "pay_date": "2023-06-30",
+            "amount": 25.911,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2023-06-26",
+            "proposal_announcement_date": "2023-06-14",
+            "fiscal_period": "2022-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 30,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2022-12-27",
+            "pay_date": "2022-12-27",
+            "amount": 21.91,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2022-12-21",
+            "proposal_announcement_date": "2022-12-15",
+            "fiscal_period": "2022-11-29",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 31,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2022-06-30",
+            "pay_date": "2022-06-30",
+            "amount": 21.675,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2022-06-24",
+            "proposal_announcement_date": "2022-06-17",
+            "fiscal_period": "2021-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 36,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2021-06-25",
+            "pay_date": "2021-06-25",
+            "amount": 19.293,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2021-06-21",
+            "proposal_announcement_date": "2021-06-10",
+            "fiscal_period": "2020-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 41,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2020-06-24",
+            "pay_date": "2020-06-24",
+            "amount": 17.025,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2020-06-18",
+            "proposal_announcement_date": "2020-06-11",
+            "fiscal_period": "2019-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 46,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2019-06-28",
+            "pay_date": "2019-06-28",
+            "amount": 14.539,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2019-06-22",
+            "proposal_announcement_date": "2019-05-30",
+            "fiscal_period": "2018-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 51,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2018-06-15",
+            "pay_date": "2018-06-15",
+            "amount": 10.999,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2018-06-08",
+            "proposal_announcement_date": "2018-05-24",
+            "fiscal_period": "2017-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 54,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2017-07-07",
+            "pay_date": "2017-07-07",
+            "amount": 6.787,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2017-07-01",
+            "proposal_announcement_date": "2017-05-23",
+            "fiscal_period": "2016-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 56,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2016-07-01",
+            "pay_date": "2016-07-01",
+            "amount": 6.171,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2016-06-27",
+            "proposal_announcement_date": "2016-05-19",
+            "fiscal_period": "2015-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 58,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2015-07-17",
+            "pay_date": "2015-07-17",
+            "amount": 4.374,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2015-07-10",
+            "proposal_announcement_date": "2015-05-21",
+            "fiscal_period": "2014-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 60,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2014-06-25",
+            "pay_date": "2014-06-25",
+            "amount": 4.374,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2014-06-18",
+            "proposal_announcement_date": "2014-05-20",
+            "fiscal_period": "2013-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 62,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2013-06-07",
+            "pay_date": "2013-06-17",
+            "amount": 6.419,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2013-06-03",
+            "proposal_announcement_date": "2013-05-17",
+            "fiscal_period": "2012-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 64,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2012-07-05",
+            "pay_date": "2012-07-13",
+            "amount": 3.997,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2012-06-27",
+            "proposal_announcement_date": "2012-05-30",
+            "fiscal_period": "2011-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 66,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2011-07-01",
+            "pay_date": "2011-07-07",
+            "amount": 2.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2011-06-27",
+            "proposal_announcement_date": "2011-05-26",
+            "fiscal_period": "2010-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 68,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2010-07-05",
+            "pay_date": "2010-07-09",
+            "amount": 1.185,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2010-06-29",
+            "proposal_announcement_date": "2010-05-29",
+            "fiscal_period": "2009-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 70,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2009-07-01",
+            "pay_date": "2009-07-07",
+            "amount": 1.156,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2009-06-25",
+            "proposal_announcement_date": "2009-05-23",
+            "fiscal_period": "2008-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 72,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2008-06-16",
+            "pay_date": "2008-06-20",
+            "amount": 0.836,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2008-06-10",
+            "proposal_announcement_date": "2008-05-29",
+            "fiscal_period": "2007-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 74,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2007-07-13",
+            "pay_date": "2007-07-19",
+            "amount": 0.7,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2007-07-09",
+            "proposal_announcement_date": "2007-06-01",
+            "fiscal_period": "2006-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 76,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2006-05-24",
+            "pay_date": "2006-05-29",
+            "amount": 0.591,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2006-05-22",
+            "proposal_announcement_date": "2006-05-15",
+            "fiscal_period": "2006-05-23",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 78,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2006-05-19",
+            "pay_date": "2006-05-23",
+            "amount": 0.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2006-05-15",
+            "proposal_announcement_date": "2006-05-12",
+            "fiscal_period": "2005-12-31",
+            "stock_dividend_ratio": 1.0,
+            "source_row": 79,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2005-08-05",
+            "pay_date": "2005-08-11",
+            "amount": 0.5,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2005-07-30",
+            "proposal_announcement_date": "2005-06-30",
+            "fiscal_period": "2004-12-31",
+            "stock_dividend_ratio": 0.2,
+            "source_row": 81,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2004-07-01",
+            "pay_date": "2004-07-07",
+            "amount": 0.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2004-06-25",
+            "proposal_announcement_date": "2004-06-01",
+            "fiscal_period": "2003-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 83,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2003-07-14",
+            "pay_date": "2003-07-18",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2003-07-08",
+            "proposal_announcement_date": "2003-06-13",
+            "fiscal_period": "2002-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 85,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2002-07-25",
+            "pay_date": "2002-07-30",
+            "amount": 0.6,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2002-07-18",
+            "proposal_announcement_date": "2002-06-26",
+            "fiscal_period": "2001-12-31",
+            "stock_dividend_ratio": 0.1,
+            "source_row": 87,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          }
+        ],
+        "pending": [],
+        "coverage": "Tushare dividend queried for selected security",
+        "future_status": "DECLARED_SCHEDULE_ONLY_UNANNOUNCED_DIVIDENDS_UNKNOWN"
+      },
+      "schedule": [
+        {
+          "tenor_months": 1,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-10-30",
+          "actual_expiry_date": "2026-10-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-11-03",
+          "variance_year_fraction": 0.06746031746031746,
+          "trading_days_to_expiry": 17,
+          "actual_calendar_days": 30,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 34,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 2,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-11-30",
+          "actual_expiry_date": "2026-11-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-12-02",
+          "variance_year_fraction": 0.15079365079365079,
+          "trading_days_to_expiry": 38,
+          "actual_calendar_days": 61,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 63,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 3,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-12-30",
+          "actual_expiry_date": "2026-12-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 4,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-01-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 5,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-02-28",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 6,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-03-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        }
+      ],
+      "model_state": {
+        "as_of": "2026-08-13",
+        "status": "NOT_REFRESHED_BY_LIVE_SPOT",
+        "retrained": false
+      },
+      "rate_state": {
+        "status": "CLIENT_INPUT_REQUIRED",
+        "source": "No live risk-free curve supplied by this feed"
+      },
+      "pricing_convention": {
+        "inception": "NEW_TRADE_AT_QUOTE_DATE",
+        "variance": "BUS/252_CLOSE_PROXY",
+        "intraday": "Intraday spot is a scenario; remaining fraction of today's variance is not modelled",
+        "premium": "T+1_EXCHANGE_DAYS",
+        "payoff": "EXPIRY_PLUS_2_EXCHANGE_DAYS"
+      },
+      "snapshot_id": "3b570412c867c502d2ae301a39e7040fbc6ba9e081be445d29dc18e8638d5297"
+    },
+    "300826": {
+      "schema_version": 1,
+      "ticker": "300826",
+      "ts_code": "300826.SZ",
+      "exchange": "SZSE",
+      "currency": "CNY",
+      "fetched_at": "2026-10-04T23:23:38.130242+08:00",
+      "quote": {
+        "price": 14.86,
+        "pre_close": 15.0,
+        "source": "TUSHARE_DAILY",
+        "trade_date": "2026-09-30",
+        "trade_time": "2026-09-30T15:00:00+08:00",
+        "kind": "LATEST_CLOSE",
+        "is_realtime": false,
+        "volume_shares": 2808440.0,
+        "turnover_cny": 41845694.21
+      },
+      "feed": {
+        "rt_k_status": "ACCESS_DENIED",
+        "fallback_reason": "ACCESS_DENIED",
+        "expected_completed_session": "2026-09-30",
+        "daily_lagging": false,
+        "market_state": "CLOSED",
+        "calendar_status": "AVAILABLE",
+        "adjustment_status": "AVAILABLE",
+        "poll_seconds": 30,
+        "errors": [
+          {
+            "api": "rt_k",
+            "status": "ACCESS_DENIED",
+            "code": 40203
+          }
+        ]
+      },
+      "history": {
+        "as_of": "2026-09-30",
+        "daily_rows": 263,
+        "source": "TUSHARE_DAILY_AND_ADJ_FACTOR"
+      },
+      "realized": {
+        "as_of": "2026-09-30",
+        "measure": "TRAILING_REALIZED_NOT_RISK_NEUTRAL_IV",
+        "nodes": [
+          {
+            "tenor_months": 1,
+            "lookback_observations": 21,
+            "value": 0.49447101952937744,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 2,
+            "lookback_observations": 42,
+            "value": 0.4756647913744793,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 3,
+            "lookback_observations": 63,
+            "value": 0.4646968284560009,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 4,
+            "lookback_observations": 84,
+            "value": 0.46063985170201943,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 5,
+            "lookback_observations": 105,
+            "value": 0.45655651610721576,
+            "status": "AVAILABLE"
+          },
+          {
+            "tenor_months": 6,
+            "lookback_observations": 126,
+            "value": 0.4228293911807054,
+            "status": "AVAILABLE"
+          }
+        ],
+        "method": "std(log(adj_close[t]/adj_close[t-1]), ddof=1)*sqrt(252)",
+        "clock": "BUS/252",
+        "observations": 263,
+        "suspension_caveat": "Lookbacks count available stock observations; suspension gaps can span multiple exchange days."
+      },
+      "dividends": {
+        "status": "FETCHED",
+        "future": [],
+        "history": [
+          {
+            "ex_date": "2026-06-10",
+            "pay_date": "2026-06-10",
+            "amount": 0.03,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2026-06-03",
+            "proposal_announcement_date": "2026-05-15",
+            "fiscal_period": "2025-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 4,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2025-06-17",
+            "pay_date": "2025-06-17",
+            "amount": 0.03,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2025-06-11",
+            "proposal_announcement_date": "2025-05-13",
+            "fiscal_period": "2024-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 9,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2024-06-21",
+            "pay_date": "2024-06-21",
+            "amount": 0.1,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2024-06-14",
+            "proposal_announcement_date": "2024-05-17",
+            "fiscal_period": "2023-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 14,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2023-07-11",
+            "pay_date": "2023-07-11",
+            "amount": 0.2,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2023-07-04",
+            "proposal_announcement_date": "2023-05-16",
+            "fiscal_period": "2022-12-31",
+            "stock_dividend_ratio": 0.0,
+            "source_row": 19,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2022-06-15",
+            "pay_date": "2022-06-15",
+            "amount": 0.3,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2022-06-08",
+            "proposal_announcement_date": "2022-05-10",
+            "fiscal_period": "2021-12-31",
+            "stock_dividend_ratio": 0.3,
+            "source_row": 24,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          },
+          {
+            "ex_date": "2021-05-25",
+            "pay_date": "2021-05-25",
+            "amount": 0.75,
+            "amount_basis": "PRE_TAX_CNY_PER_SHARE",
+            "announcement_date": "2021-05-18",
+            "proposal_announcement_date": "2021-05-13",
+            "fiscal_period": "2020-12-31",
+            "stock_dividend_ratio": 0.4,
+            "source_row": 29,
+            "source_status": "TUSHARE_IMPLEMENTATION_ANNOUNCED_AS_OF"
+          }
+        ],
+        "pending": [],
+        "coverage": "Tushare dividend queried for selected security",
+        "future_status": "DECLARED_SCHEDULE_ONLY_UNANNOUNCED_DIVIDENDS_UNKNOWN"
+      },
+      "schedule": [
+        {
+          "tenor_months": 1,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-10-30",
+          "actual_expiry_date": "2026-10-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-11-03",
+          "variance_year_fraction": 0.06746031746031746,
+          "trading_days_to_expiry": 17,
+          "actual_calendar_days": 30,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 34,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 2,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-11-30",
+          "actual_expiry_date": "2026-11-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": "2026-12-02",
+          "variance_year_fraction": 0.15079365079365079,
+          "trading_days_to_expiry": 38,
+          "actual_calendar_days": 61,
+          "premium_payment_calendar_days": 8,
+          "payoff_settlement_calendar_days_from_start": 63,
+          "status": "AVAILABLE"
+        },
+        {
+          "tenor_months": 3,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2026-12-30",
+          "actual_expiry_date": "2026-12-30",
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 4,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-01-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 5,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-02-28",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        },
+        {
+          "tenor_months": 6,
+          "contract_start_date": "2026-09-30",
+          "calendar_exchange": "SZSE",
+          "calendar_version": "official-2026-reviewed-2026-10-02",
+          "calendar_coverage_end": "2026-12-31",
+          "unadjusted_expiry_date": "2027-03-30",
+          "actual_expiry_date": null,
+          "premium_payment_date": "2026-10-08",
+          "payoff_settlement_date": null,
+          "variance_year_fraction": null,
+          "trading_days_to_expiry": null,
+          "actual_calendar_days": null,
+          "premium_payment_calendar_days": null,
+          "payoff_settlement_calendar_days_from_start": null,
+          "status": "PENDING_CALENDAR_COVERAGE"
+        }
+      ],
+      "model_state": {
+        "as_of": "2026-08-13",
+        "status": "NOT_REFRESHED_BY_LIVE_SPOT",
+        "retrained": false
+      },
+      "rate_state": {
+        "status": "CLIENT_INPUT_REQUIRED",
+        "source": "No live risk-free curve supplied by this feed"
+      },
+      "pricing_convention": {
+        "inception": "NEW_TRADE_AT_QUOTE_DATE",
+        "variance": "BUS/252_CLOSE_PROXY",
+        "intraday": "Intraday spot is a scenario; remaining fraction of today's variance is not modelled",
+        "premium": "T+1_EXCHANGE_DAYS",
+        "payoff": "EXPIRY_PLUS_2_EXCHANGE_DAYS"
+      },
+      "snapshot_id": "356d409f0598b3a806c4dc4e7c3ea0ca59e594bd2593d1f01945f76cc70a55f0"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FREERIDE · Tushare 行情与 Pricer</title>
+<style>
+:root{color-scheme:dark;font:14px/1.65 'Segoe UI','Microsoft YaHei',sans-serif;background:#09131f;color:#e3edf4;--muted:#94aabc;--accent:#74ddc6;--line:#294050}*{box-sizing:border-box}body{margin:auto;max-width:1360px;padding:26px}a{color:var(--accent)}nav{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:16px;font-size:12px}.brand{letter-spacing:2px}h1{font-weight:550;font-size:30px;margin-bottom:6px}h2{font-size:17px;margin:0 0 12px}h3{font-size:14px}p{color:var(--muted)}.eyebrow{color:var(--accent);letter-spacing:2px;font-size:11px;margin-top:24px}.panel{border:1px solid var(--line);border-radius:12px;padding:20px;background:#102031;margin:16px 0}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.row label{min-width:150px;flex:1}.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit;border:1px solid #3f596e;border-radius:6px;padding:10px;background:#0b1928;color:#e3edf4;width:100%;min-width:0}button{background:#1d7468;color:#fff;cursor:pointer}button.secondary{background:#163247}button:disabled{opacity:.4;cursor:default}.row button{width:auto}.pill{font-size:11px;border:1px solid #3b6c60;color:var(--accent);border-radius:20px;padding:4px 10px}.notice{border-left:3px solid #d2ad6c;background:#40351f55;color:#e2c58e;padding:12px 15px;margin:14px 0}.small{font-size:12px;color:var(--muted)}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:16px 0}.metric{padding:16px;background:#13293b;border:1px solid var(--line);border-radius:9px}.metric b{display:block;font-size:24px;color:var(--accent);font-variant-numeric:tabular-nums}.metric span{font-size:11px;color:var(--muted)}.columns{display:grid;grid-template-columns:1.45fr 1fr;gap:18px}.error{color:#ffb6a0}.result{background:#12322f;border:1px solid #2c6057;border-radius:9px;padding:18px;align-self:start}.big{font-size:28px;color:var(--accent);font-variant-numeric:tabular-nums}.result dl{display:grid;grid-template-columns:1fr 1.2fr;gap:10px;font-size:12px}.result dt{color:var(--muted)}.result dd{margin:0;text-align:right;overflow-wrap:anywhere}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap;font-variant-numeric:tabular-nums}th,td{padding:9px;text-align:right;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:11px}td:first-child,th:first-child{text-align:left}.bars{display:flex;gap:12px;height:165px;align-items:end;padding:10px 4px}.barcol{flex:1;text-align:center;color:var(--muted);font-size:11px}.bar{background:linear-gradient(#75dec6,#266c71);border-radius:5px 5px 0 0;min-height:2px;margin:4px 0}.rvnumber{color:#e3edf4}.wide{grid-column:1/-1}details summary{cursor:pointer;color:var(--accent)}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px}input[type=checkbox]{width:auto}.check{display:flex;flex-direction:row;align-items:center}.actions{margin-top:16px}.actions button{width:auto}footer{font-size:12px;color:var(--muted);margin:24px 0}
+@media(max-width:1000px){.columns{grid-template-columns:1fr}.formgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){body{padding:14px}.metrics{grid-template-columns:1fr 1fr}.metric b{font-size:20px}.panel{padding:14px}.row label{min-width:100%}h1{font-size:24px}nav{flex-wrap:wrap}.formgrid{grid-template-columns:1fr 1fr}.big{font-size:24px}}
+</style></head><body>
+<nav><span class="brand">FREERIDE / EQUITY DERIVATIVES</span><span><a href="a-share-option-demo.html">个股 IV 曲面</a> · <a href="etf-surface-demo.html">ETF 曲面</a> · <a href="index.html">项目首页</a></span></nav>
+<div class="eyebrow">MARKET CONTEXT / TUSHARE</div><h1>最新行情与 Client Pricer</h1>
+<p>按标的更新现货、复权历史波动率和已公告分红。行情日期、抓取时间和曲面版本分别显示。</p>
+<div id="connection" class="notice" role="status">正在读取行情…</div>
+<section class="panel"><div class="row">
+<label>标的代码<input id="ticker" value="000166" list="codes" pattern="[0-9]{6}(\.(SH|SZ))?" maxlength="9"><datalist id="codes"><option value="000166">申万宏源</option><option value="000039">中集集团</option><option value="600000">浦发银行</option><option value="600519">贵州茅台</option><option value="300826">测绘股份</option></datalist></label>
+<button id="refresh">刷新行情</button><label class="check"><input type="checkbox" id="auto">每 30 秒刷新</label><button id="downloadMarket" class="secondary" disabled>导出行情快照</button></div>
+<p id="feedStatus" class="small"></p><div id="metrics" class="metrics"></div>
+<details><summary>数据连接与快照导入</summary><p class="small">公开页默认读取最近发布的快照。本地服务可按需请求 Tushare；公开实时后台可填写 HTTPS 地址。此处不输入 Tushare 密钥。</p>
+<div class="row"><label>行情服务地址（可留空）<input id="endpoint" type="url" placeholder="https://你的后台域名"></label><button id="connect" class="secondary">使用此连接</button><label>导入行情 JSON<input id="importMarket" type="file" accept=".json,application/json"></label></div>
+<p class="small">本地启动：<code>python run.py</code>；打开 <a href="http://127.0.0.1:8765/stock-demo/live-market.html" target="_blank" rel="noopener">本地行情页面</a>。公开页可导入本地导出的快照。</p></details>
+<p id="error" class="error" role="alert"></p></section>
+<section class="panel"><h2>历史 realized · 最新完整收盘窗口</h2><div id="rv" class="bars"></div><p id="rvNote" class="small"></p><div class="notice">历史 realized 是过去的已实现波动率，可用于情景试算。Market Context 与模型曲面仍标记 2026-08-13；更新现货不会自动重训模型或生成当日风险中性 IV。</div></section>
+<section class="panel"><h2>以行情日为起点的新交易情景</h2><p id="scenarioDate" class="small"></p>
+<div class="columns"><form id="pricingForm"><div class="formgrid">
+<label>约定期初价 CNY<input id="spot" type="number" min=".0001" step="any" required></label>
+<label>本金 CNY<input id="notional" type="number" min=".01" step="any" value="1000000" required></label>
+<label>期限（月）<select id="tenor"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+<label>Strike / S₀ %<input id="strike" type="number" min="1" max="500" step="any" value="100" required></label>
+<label>合约<select id="optionType"><option value="call">European Call</option><option value="put">European Put</option></select></label>
+<label>波动率来源<select id="volSource"><option value="manual">客户波动率假设</option><option value="realized">历史 RV 情景</option></select></label>
+<label>波动率 % · BUS/252<input id="vol" type="number" min="0" max="1000" step="any" placeholder="请填写客户 IV" required></label>
+<label>境内无风险基准 %<input id="baseRate" type="number" min="-20" max="50" step="any" placeholder="请填写适用利率" required></label>
+<label>融资加点 bp<input id="funding" type="number" min="-2000" max="5000" step="any" value="150" required></label>
+<label>贴现加点 bp<input id="discount" type="number" min="-2000" max="5000" step="any" value="0" required></label>
+<label>借券负 carry bp<input id="borrow" type="number" min="0" max="5000" step="any" value="0" required></label>
+<label>额外商业加点 bp<input id="markup" type="number" min="0" max="5000" step="any" value="0" required></label>
+<label>股息方式<select id="divMode"><option value="declared">已公告现金分红</option><option value="yield">客户连续股息率</option></select></label>
+<label id="scaleField">现金分红乘数<input id="divScale" type="number" min="0" max="5" step="any" value="1" required></label>
+<label id="yieldField" hidden>连续股息率 %<input id="divYield" type="number" min="0" max="50" step="any" placeholder="请明确输入"></label>
+</div><p class="small">利率未接入当日曲线，需由客户填写；0 bp 借券表示尚未添加调整。股息率覆盖会替换现金时间表。盘中现货按收盘至收盘的 BUS/252 时钟试算，未计当日剩余时段方差。</p>
+<div class="actions"><button id="calculate">计算情景</button> <button type="button" id="resetSpot" class="secondary">采用行情价</button> <button type="button" id="exportPrice" class="secondary" disabled>导出估值</button></div></form>
+<div id="result" class="result" aria-live="polite"><span class="big">等待输入</span><p>填写客户波动率与适用基准利率后计算。</p></div></div></section>
+<section class="panel"><h2>按当前起点重算日期</h2><div class="scroll"><table id="schedule"></table></div><p class="small">自然月 Following；权利金 T+1、收益到期后 T+2，按所属交易所计数。超出核实日历覆盖时停止估值。</p></section>
+<section class="panel"><h2>已公告未来现金分红</h2><p id="divStatus" class="small"></p><div class="scroll"><table id="dividends"></table></div></section>
+<section class="panel"><details><summary>数据来源与时间戳</summary><pre id="provenance"></pre></details></section>
+<footer>INDICATIVE · CNY · Market Context 可编辑情景。行情接口不会向浏览器发送 API 密钥。</footer>
+<script src="live-pricing.js"></script><script src="live-market.js"></script></body></html>
