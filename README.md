@@ -2,6 +2,8 @@
 
 Static GitHub Pages demo for the A-share OTC European call research workflow.
 
+Live demo: https://lancewang1.github.io/freeride-a-share-option-demo/
+
 ## Pages
 
 - `index.html` — project overview, model flow, validation and limitations.
