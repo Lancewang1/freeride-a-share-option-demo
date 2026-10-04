@@ -7,11 +7,12 @@ Live demo: https://lancewang1.github.io/freeride-a-share-option-demo/
 ## Pages
 
 - `index.html` — project overview, model flow, validation and limitations.
-- `a-share-option-demo.html` — 2026-08-13 SOL Final Offer and offer-equivalent IV viewer.
+- `a-share-option-demo.html` — 2026-08-13 Market Context offer, three-source individual-stock IV surface, editable assumptions and a client pricer.
 - `etf-surface-demo.html` — listed 50ETF/300ETF risk-neutral surface viewer.
+- `surface-layers.js` — compact model-estimate and trailing-realized layers used by the static stock surface.
 - `evidence/` — reproducible training and out-of-sample validation summaries.
 
-The site is self-contained. It does not call Tushare, require an API key, or send data to a server. The embedded SOL snapshot is a research reference supplied for this project; its offer-equivalent IV includes the observed provider's commercial layer and is not a dealer-mid volatility mark.
+The site is self-contained. It does not call Tushare, require an API key, or send data to a server. The embedded Market Context snapshot is a research reference supplied for this project; its offer-equivalent IV includes the observed provider's commercial layer and is not a dealer-mid volatility mark.
 
 ## Local preview
 
