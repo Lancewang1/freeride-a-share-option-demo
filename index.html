@@ -72,6 +72,7 @@
         <p>一个可审计的研究型演示：从历史行情生成独立波动率先验，接入上市 ETF 风险中性曲面，再用 Market Context 卖价等效 IV 校准普通欧式认购的最终卖价。</p>
         <div class="actions">
           <a class="button" href="a-share-option-demo.html">个股三维曲面与 Client Pricer</a>
+          <a class="button secondary" href="vol-model-explainer.html">阅读 VOL 模型逐步说明</a>
           <a class="button secondary" href="live-market.html">Tushare 最新行情与 Pricer</a>
           <a class="button secondary" href="etf-surface-demo.html">打开 ETF 风险中性曲面</a>
         </div>
@@ -95,6 +96,12 @@
         <div class="step"><em>3</em><h3>Market Context 等效 IV 校准</h3><p>在同一 carry 和 Black 现金结算核下，把 Market Context offer 反解为 offer-equivalent IV，训练报价调整量。</p></div>
         <div class="step"><em>4</em><h3>曲面约束与报价</h3><p>预测结果经过执行价单调性、凸性和 intrinsic/upper bounds 约束，再回代为最终卖价。</p></div>
       </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>模型说明</h2>
+      <p>用 000166.SZ 的 1M 100C 逐步解释 Realized、Model Estimate、Market Context、P→Q 桥和第二层报价校准。</p>
+      <div class="actions"><a class="button secondary" href="vol-model-explainer.html">打开个股 VOL 模型说明页</a></div>
     </section>
 
     <section class="grid two" style="margin-top:16px">

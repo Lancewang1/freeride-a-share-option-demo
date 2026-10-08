@@ -8,6 +8,7 @@ Live demo: https://lancewang1.github.io/freeride-a-share-option-demo/
 
 - `index.html` — project overview, model flow, validation and limitations.
 - `a-share-option-demo.html` / `stock-demo.js` — 2026-08-13 Market Context offer, rotatable 3D stock surface, heatmaps and smile comparison across three sources, editable assumptions and a client pricer.
+- `vol-model-explainer.html` — detailed 000166 example explaining Realized, Model Estimate, Market Context, the P→Q bridge, and the second-layer adjustment.
 - `vendor/plotly.min.js` — bundled Plotly library (MIT license notice included), so chart rendering needs no external CDN.
 - `live-market.html` — latest Tushare snapshot viewer, historical realized-volatility panel and a new-trade client pricer.
 - `latest-market-context.json` — dated public snapshot for five example A-shares; this file contains no Tushare credential.

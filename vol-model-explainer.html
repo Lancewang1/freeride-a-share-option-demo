@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FREERIDE A股个股波动率曲面模型说明：Realized、Model Estimate 与 Market Context 的关系">
+  <title>FREERIDE · 个股波动率模型说明</title>
+  <style>
+    :root{--ink:#173343;--muted:#617887;--line:#d9e5ea;--paper:#f5f9fb;--card:#fff;--teal:#087f72;--teal-dark:#075b56;--blue:#326fa8;--gold:#bd8422;--rose:#a95251;--shadow:0 14px 34px rgba(28,63,76,.08)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.72 "Segoe UI","Microsoft YaHei",sans-serif}a{color:var(--teal-dark)}.wrap{max-width:1180px;margin:auto;padding:28px 22px 70px}.hero{padding:32px 0 26px;display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:end}.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.1;letter-spacing:-.03em;margin:10px 0 13px}.hero p{font-size:17px;max-width:790px}.stamp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.stamp strong{display:block;font-size:24px;color:var(--teal-dark)}.stamp span{font-size:13px;color:var(--muted)}.notice{border-left:4px solid var(--gold);background:#fff9ec;padding:14px 18px;border-radius:8px;color:#654c1c;margin:12px 0 22px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.button{display:inline-block;border-radius:9px;padding:9px 14px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700}.button.secondary{background:#e6f1ef;color:var(--teal-dark)}.section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:23px;margin:16px 0;box-shadow:var(--shadow);min-width:0}.table-wrap{width:100%;max-width:100%;min-width:0;overflow-x:auto}.table-wrap table{min-width:650px}h2{font-size:24px;line-height:1.3;margin:0 0 11px}h3{font-size:17px;margin:0 0 7px}h4{font-size:14px;margin:0 0 5px;color:var(--teal-dark)}p{color:var(--muted);margin:8px 0}.small{font-size:13px}.muted{color:var(--muted)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;min-width:0}.grid2>div{min-width:0}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;min-width:0}.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fbfdfe;min-width:0}.tag{display:inline-block;border-radius:99px;padding:2px 9px;font-size:11px;font-weight:700;background:#e5f1ef;color:var(--teal-dark);margin-bottom:8px}.tag.blue{background:#e8f0fa;color:#2c5e92}.tag.gold{background:#fff2d7;color:#79591e}.tag.rose{background:#f9e8e7;color:#874847}.metric{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #edf2f4;padding:9px 0}.metric:last-child{border-bottom:0}.metric b{font-variant-numeric:tabular-nums;color:var(--teal-dark);white-space:nowrap}.metric span{color:var(--muted)}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}th,td{padding:10px 9px;border-bottom:1px solid #e2ebee;text-align:right;vertical-align:top}th{background:#f0f6f8;color:var(--muted);font-size:12px}th:first-child,td:first-child{text-align:left}.number{font-variant-numeric:tabular-nums}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:17px 0}.step{position:relative;min-height:156px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(150deg,#fff,#f2faf8);padding:15px}.step:not(:last-child)::after{content:'→';position:absolute;right:-18px;top:54px;color:var(--teal);font-size:24px;font-weight:700;z-index:2}.step b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;margin-bottom:9px}.step p{font-size:13px;margin:3px 0}.formula{background:#112b3a;color:#eaf7f5;border-radius:10px;padding:14px 16px;overflow:auto;font:14px/1.65 Consolas,"Microsoft YaHei",monospace;margin:11px 0}.formula .accent{color:#8fe1cf}.formula .gold{color:#ffd58b}.formula .blue{color:#9dc8fa}.callout{border:1px solid #bcded6;background:#f0faf7;border-radius:10px;padding:13px 16px}.warning{border:1px solid #efd8a7;background:#fffaf0;border-radius:10px;padding:13px 16px;color:#654c1c}.source-table td:first-child{font-weight:700}.source-table tr.market td:first-child{color:var(--rose)}.source-table tr.model td:first-child{color:var(--blue)}.source-table tr.realized td:first-child{color:var(--gold)}.bar{height:12px;background:#eaf1f4;border-radius:99px;overflow:hidden;margin-top:7px}.bar i{display:block;height:100%;border-radius:99px}.bar.market i{background:var(--rose);width:100%}.bar.model i{background:var(--blue);width:89.6%}.bar.realized i{background:var(--gold);width:45.8%}.legend{display:flex;gap:15px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.legend i{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px}.legend .m{background:var(--rose)}.legend .o{background:var(--blue)}.legend .r{background:var(--gold)}ul{margin:8px 0;padding-left:21px;color:var(--muted)}li{margin:5px 0}code{background:#edf3f5;border-radius:5px;padding:2px 5px;color:#345666}pre{white-space:pre-wrap;overflow-wrap:anywhere}.foot{border-top:1px solid var(--line);padding-top:18px;margin-top:28px;color:var(--muted);font-size:13px}
+    @media(max-width:880px){.hero,.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.step:not(:last-child)::after{content:''}}
+    @media(max-width:600px){.wrap{padding:18px 14px 48px}.grid3,.flow{grid-template-columns:1fr}.section{padding:17px}h2{font-size:21px}table{font-size:13px;min-width:650px}.table-wrap{overflow:auto}.formula{font-size:12px}.hero h1{font-size:31px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">FREERIDE / VOLATILITY MODEL EXPLAINER</div>
+      <h1>个股波动率是怎样估出来的？</h1>
+      <p>这页用一个真实的研究节点，逐步解释 <b>Realized</b>、<b>Model Estimate</b> 和 <b>Market Context</b> 分别是什么、如何连接，以及为什么它们不能被当成同一个波动率数字。</p>
+      <div class="actions"><a class="button" href="a-share-option-demo.html">返回个股三维曲面与 Pricer</a><a class="button secondary" href="index.html">项目首页</a><a class="button secondary" href="live-market.html">最新行情页</a></div>
+    </div>
+    <div class="stamp"><strong>逐步示例</strong><span>000166.SZ · 申万宏源<br>估值日 2026-08-13<br>1M · 100% spot Call · CNY</span></div>
+  </section>
+
+  <div class="notice"><b>先给结论：</b>Realized 是历史收益的 P 测度信息；Model Estimate 是用历史信息和模型得到的卖价等效 IV 预测；Market Context 是当天参考卖价反解出来的卖价等效 IV。当前模型的目标是：没有当天个股 Market Context 时，也能从历史信息独立生成一张可报价曲面；Market Context 只在校准和验证阶段提供参考标签。</div>
+
+  <section class="section">
+    <h2>三个来源先分清楚</h2>
+    <div class="grid3">
+      <article class="card"><span class="tag gold">REALIZED · P 测度</span><h3>已经发生了什么</h3><p>从复权收盘收益计算过去 5、20、60 个交易日的年化波动。它描述历史市场状态，用来构造模型特征和做情景参考。</p><p class="small"><b>不能直接叫 IV。</b>它没有包含期权市场对未来风险、尾部和流动性的定价。</p></article>
+      <article class="card"><span class="tag blue">MODEL ESTIMATE</span><h3>模型认为应当怎样报价</h3><p>第一层先预测未来 realized volatility，再经过上市 ETF 的 P→Q 诊断桥；第二层学习参考卖价等效 IV 与基础预测之间的差额。</p><p class="small">页面显示的是最终预测的 <b>offer-equivalent IV</b>，包含当前研究模型对卖方报价层的估计。</p></article>
+      <article class="card"><span class="tag rose">MARKET CONTEXT</span><h3>参考报价实际怎样卖</h3><p>把当天参考卖价放进和模型完全相同的 carry、现金分红、BUS/252 和 Black 现金结算核，反解出一个等效 IV。</p><p class="small">它包含报价方的风险溢价、流动性储备和商业影响，不能被解释成纯粹的“市场中间 IV”。</p></article>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1</b><h4>历史行情</h4><p>收益、成交额、涨跌停和市场状态 → Realized 与特征</p></div>
+      <div class="step"><b>2</b><h4>第一层模型</h4><p>LightGBM 预测未来 1–4M realized → <code>base_iv</code></p></div>
+      <div class="step"><b>3</b><h4>P → Q 桥与二层模型</h4><p>上市 ETF 风险溢价 + Market Context 历史标签 → Model Estimate</p></div>
+      <div class="step"><b>4</b><h4>定价</h4><p>预测 IV、forward、贴现和结算条款 → Black 现金结算卖价</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>示例合同与共同定价核</h2>
+    <div class="grid2">
+      <div>
+        <div class="table-wrap"><table><tbody>
+          <tr><th>标的</th><td>000166.SZ · 申万宏源</td></tr>
+          <tr><th>估值日 / 初始 spot</th><td>2026-08-13 / 4.56 CNY</td></tr>
+          <tr><th>期权</th><td>普通欧式认购，K/S₀ = 100%</td></tr>
+          <tr><th>本金 / 股数</th><td>1,000,000 CNY / 219,298.2456 股</td></tr>
+          <tr><th>到期观察日</th><td>2026-09-14（自然月 + SZSE Following）</td></tr>
+          <tr><th>权利金 / 收益支付</th><td>2026-08-14（T+1）/ 2026-09-16（到期后 T+2）</td></tr>
+          <tr><th>方差时间</th><td>22 / 252 = 0.08730159</td></tr>
+        </tbody></table></div>
+      </div>
+      <div>
+        <div class="callout"><b>carry 输入</b><br>中债国债参考 1.1915% + 融资加点 150bp = 2.6915%；贴现加点 0bp；借券成本 0bp；已公告现金股息 0.075 CNY/股。</div>
+        <div class="formula">N = S₀ × Q = 4.56 × 219,298.2456 = 1,000,000 CNY
+
+F / S₀ = 0.98588353
+PV(dividend) = 0.07496682 CNY / share
+
+Offer / N = DF<sub>payoff</sub> / DF<sub>premium</sub>
+             × Black(F/S₀, K/S₀, 22/252, σ)</div>
+        <p class="small">所有来源都先转换到这个共同的 forward、贴现和 Black 核，差异才主要来自波动率来源，而不是日期或 carry 不一致。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>第一步：Realized 怎样进入模型</h2>
+    <p>对每个股票和每个历史日期，只使用当日收盘前已经可见的数据。示例训练记录包含以下特征；它们不是“直接加权平均”，而是作为 LightGBM 的输入，让树模型学习非线性条件关系。</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>特征</th><th>示例值</th><th>它描述什么</th></tr></thead>
+      <tbody>
+        <tr><td>RV5</td><td>5.84%</td><td>最近短期波动是否突然抬升</td></tr>
+        <tr><td>RV20</td><td>18.01%</td><td>最近约一个月的历史波动水平</td></tr>
+        <tr><td>RV60</td><td>26.77%</td><td>较长窗口的波动背景</td></tr>
+        <tr><td>EWMA20</td><td>17.70%</td><td>对近期收益给予更高权重的波动</td></tr>
+        <tr><td>ret20 / ret60</td><td>−1.74% / +1.99%</td><td>短期和中期趋势状态</td></tr>
+        <tr><td>downside20 / upside20</td><td>11.27% / 18.01%</td><td>下跌与上涨方向的波动不对称</td></tr>
+        <tr><td>vol_of_vol60</td><td>26.77%</td><td>波动本身是否不稳定</td></tr>
+        <tr><td>limit_rate20</td><td>0.00%</td><td>近期涨跌停状态频率</td></tr>
+        <tr><td>log amount / log close</td><td>12.4546 / 1.5173</td><td>流动性和价格规模</td></tr>
+        <tr><td>market RV20 / market ret20</td><td>51.83% / +2.70%</td><td>大盘波动和市场方向</td></tr>
+      </tbody>
+    </table></div>
+    <div class="formula"><span class="accent">target(t, H)</span> = log(未来 H 个交易日 realized volatility)
+
+H ∈ {21, 42, 63, 84} 个交易日，对应 1M、2M、3M、4M
+
+LightGBM(features visible at t, tenor = H) → <span class="blue">base_iv</span>
+
+<span class="gold">重要：</span>base_iv 是 P 测度的未来 realized volatility 先验，名字虽然沿用了 iv，
+但在没有 P→Q 和报价层校准前，不能把它当成真正的 risk-neutral IV。</div>
+    <p class="small">这里的未来 realized 标签只用于训练和时间外验证；模型在真实报价日运行时不能看到未来收益。</p>
+  </section>
+
+  <section class="section">
+    <h2>第二步：第一层输出 base_iv</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag blue">第一层 LightGBM</span><div class="metric"><span>示例 1M base_iv</span><b>31.18397%</b></div><div class="metric"><span>对应基础卖价比例</span><b>2.98285%</b></div><div class="metric"><span>对应本金价格</span><b>29,828.48 CNY</b></div><p class="small">这是假设基础模型的波动率直接进入共同定价核后的价格。它还没有加入 Market Context 的报价层调整。</p></div>
+      <div class="card"><h3>为什么不是直接用 RV20？</h3><p>因为未来一个月的风险可能不同于过去一个月。模型同时看短、中期波动、趋势、流动性、涨跌停和市场状态，学习“在什么条件下，未来波动通常如何变化”。</p><p>例如 RV60 高于 RV20 时，模型可以把较长背景作为持续风险；RV5 突然上升时，也可以学习短期冲击是否会延续。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>第三步：上市 ETF 怎样做 P → Q 诊断桥</h2>
+    <p>Realized 和第一层模型属于历史测度 P；期权价格反映的是风险中性测度 Q。我们用上市 50ETF / 300ETF 期权曲面提供市场风险溢价的方向参考，但不把 ETF 的 IV 直接复制为个股 IV。</p>
+    <div class="formula">listed_risk_premium = listed_ATM_IV − listed_realized_RV
+
+base_iv_q = clip(base_iv + w × listed_risk_premium, 0.001, 3.0)
+
+示例：31.18397% + 0.25 × (15.72239% − 22.11850%)
+      = 31.18397% − 1.59903%
+      = <span class="blue">29.58494%</span></div>
+    <div class="grid3">
+      <div class="card"><span class="tag">上市 ATM IV</span><h3>15.72239%</h3><p class="small">50ETF 与 300ETF 的同日、同期限上市 ATM 风险中性 IV 汇总值。</p></div>
+      <div class="card"><span class="tag gold">ETF realized</span><h3>22.11850%</h3><p class="small">同一市场状态下的 ETF 历史 RV 参考。</p></div>
+      <div class="card"><span class="tag blue">风险溢价</span><h3>−6.39611 vol pt</h3><p class="small">本例中上市 ATM IV 低于 ETF RV，所以桥接把 base_iv 向下调整。</p></div>
+    </div>
+    <div class="callout"><b>质量门控：</b>本例是 <code>green</code>：曲面拟合正常、日历和蝶式检查无违规、年龄为 0 天、两只 ETF 都有覆盖。因此质量因子为 1.0。若是 amber，权重减半；若是 red，桥接调整置零。默认 <code>w=0.25</code> 仍是研究参数，不是生产锁定参数。</div>
+    <p class="small">本例的 P→Q 桥价格为 2.79842% 本金，即 27,984.16 CNY。它在这个单点上比 base_iv 价格更低；这只是市场状态诊断，不能单独证明它比基础模型更准确。</p>
+  </section>
+
+  <section class="section">
+    <h2>第四步：Market Context 怎样变成训练标签</h2>
+    <p>Market Context 给的是一个最终卖价，而不是一个直接提供的 IV。我们先在相同 carry 下反解，保证标签和模型输入使用同一套合同口径。</p>
+    <div class="grid2">
+      <div>
+        <div class="formula"><span class="accent">Market Context offer</span> = 3.81% × 1,000,000
+                         = 38,100 CNY
+
+求 σ，使得：
+3.81% = DF<sub>payoff</sub> / DF<sub>premium</sub>
+          × Black(0.98588353, 1.00, 0.08730159, σ)
+
+解得 <span class="gold">σ<sub>MC</sub> = 38.33715%</span></div>
+      </div>
+      <div class="card"><span class="tag rose">Market Context label</span><div class="metric"><span>参考卖价比例</span><b>3.81000%</b></div><div class="metric"><span>反解 offer-equivalent IV</span><b>38.33715%</b></div><div class="metric"><span>反解回代误差</span><b>≈ 0 bp</b></div><p class="small">这个 IV 是“在当前 carry 下能产生该卖价的等效波动率”，不是拆分出来的纯市场中间 IV。</p></div>
+    </div>
+    <p>随后为每个股票、期限和 strike 构造二层标签：</p>
+    <div class="formula"><span class="accent">delta_iv</span> = iv_offer_from_same_carry − base_iv
+
+本例：38.33715% − 31.18397% = <span class="gold">+7.15318 vol pt</span>
+
+二层模型学习：
+features + tenor + strike + base_iv + base_iv_q + market-state features
+          → predicted_delta_iv</div>
+    <p class="small">delta_iv 不是纯商业利润。它混合了模型误差、个股风险溢价、流动性储备、carry 误差和参考报价方的商业加点。只有取得多方 bid/offer、中间价和费用拆分后，才有可能进一步识别其中的成分。</p>
+  </section>
+
+  <section class="section">
+    <h2>第五步：MODEL ESTIMATE 怎样得到</h2>
+    <div class="formula">第一层：base_iv = <span class="blue">31.18397%</span>
+P→Q 诊断：base_iv_q = <span class="blue">29.58494%</span>
+二层预测：predicted_delta_iv = <span class="gold">+3.18171 vol pt</span>
+
+最终 MODEL ESTIMATE：
+predicted_offer_iv = base_iv + predicted_delta_iv
+                    = 31.18397% + 3.18171%
+                    = <span class="accent">34.36568%</span></div>
+    <div class="grid2">
+      <div class="card"><h3>回到共同定价核</h3><p>把 34.36568% 代回相同的 forward、股息、贴现和 BUS/252 Black 核：</p><div class="metric"><span>模型卖价比例</span><b>3.35041%</b></div><div class="metric"><span>模型卖价</span><b>33,504.05 CNY</b></div><div class="metric"><span>Market Context 参考价</span><b>38,100.00 CNY</b></div></div>
+      <div class="card"><h3>差额应该怎样解释</h3><div class="bar market"><i></i></div><p class="small">Market Context：38,100 CNY</p><div class="bar model"><i></i></div><p class="small">Model Estimate：33,504 CNY</p><div class="bar realized"><i></i></div><p class="small">Realized 仅作历史参考：不是另一笔报价</p><p class="small">本例模型低于参考卖价约 4,596 CNY；这个单点差额不等于“我们应该加的商业点数”。</p></div>
+    </div>
+    <p class="small">页面中的 Model Estimate 采用预测的 offer-equivalent IV，因此它可以和 Market Context 直接比较“报价层级”；Realized 则不应该拿来和卖价直接做报价差额比较。</p>
+  </section>
+
+  <section class="section">
+    <h2>第六步：REALIZED 在页面上怎样显示</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag gold">历史实现波动</span><div class="metric"><span>页面 1M realized</span><b>17.55565%</b></div><div class="metric"><span>页面 RV5 / RV20 / RV60</span><b>5.22% / 17.56% / 26.55%</b></div><p>在 Demo 的曲面表里，Realized layer 对同一期限的不同 strike 暂时展平；这是历史参考层，不是预测的 smile，也不是风险中性曲面。</p></div>
+      <div class="warning"><b>一个数据版本提示：</b>训练 CSV 中该点的 RV20 特征为 18.01171%，而公开页面的 compact realized layer 显示 17.55565%。这是两个已保存数据工件的计算窗口／版本差异，不是模型把 Realized 直接改成了 IV。生产版本需要统一同一份 point-in-time 复权历史和窗口定义。</div>
+    </div>
+    <p>因此页面上三层的正确阅读方式是：</p>
+    <ul><li><b>Realized：</b>回答“最近实际发生了多大波动？”</li><li><b>Model Estimate：</b>回答“在没有当天个股参考卖价时，模型估计应该用什么卖价等效 IV？”</li><li><b>Market Context：</b>回答“参考报价方当天的卖价，在同一合同核下相当于多少 IV？”</li></ul>
+  </section>
+
+  <section class="section">
+    <h2>三者怎样相互作用，怎样不相互作用</h2>
+    <div class="table-wrap"><table class="source-table">
+      <thead><tr><th>来源</th><th>进入模型的位置</th><th>最终是否需要它</th><th>不能做什么</th></tr></thead>
+      <tbody>
+        <tr class="realized"><td>REALIZED</td><td>生成 RV/EWMA/趋势等 P 测度特征；生成未来 realized 标签做训练和 OOS 验证；作为页面情景层。</td><td>独立运行需要历史行情；不需要当天个股报价。</td><td>不能直接充当 risk-neutral IV 或最终卖价。</td></tr>
+        <tr class="model"><td>MODEL ESTIMATE</td><td>第一层预测 base_iv；P→Q 桥提供诊断；二层预测 delta_iv；再回代为最终价格。</td><td>这是没有个股 Market Context 时的目标输出。</td><td>当前尚未证明跨日期报价预测能力；不能宣称为正式 dealer quote。</td></tr>
+        <tr class="market"><td>MARKET CONTEXT</td><td>同 carry 反解为 offer-equivalent IV，作为二层监督标签、曲面形状校验和单日横截面验收。</td><td>训练／验证和参考对比需要；日常独立推理不应读取原价。</td><td>不能拆出纯商业加点，也不能让单日参考答案替代长期模型验证。</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><b>一句话：</b>Realized 提供“过去和 P 测度的条件信息”；Market Context 提供“当天 Q/报价层的监督答案”；Model Estimate 学习怎样从前者走向后者。当前只有一个 Market Context 日期，所以二层已完成单日横截面校准，但还没有足够多日期来学习报价方随市场状态变化的动态规则。</div>
+  </section>
+
+  <section class="section">
+    <h2>模型训练和验证边界</h2>
+    <div class="grid3">
+      <div class="card"><h3>第一层</h3><p><b>1,648,061</b> 行训练数据，5,531 个股票；目标为未来 1–4M realized。上市风险中性特征不直接进入第一层。</p></div>
+      <div class="card"><h3>第二层</h3><p><b>113,456</b> 行训练、26,992 行留出；按报价向量分组，避免同一模板的 42 个节点泄漏到两边。</p></div>
+      <div class="card"><h3>单日留组诊断</h3><p>基准价格 MAE 164.64 bp；P→Q 桥 169.30 bp；二层调整后 62.80 bp；IV MAE 约 4.08 vol 点。</p></div>
+    </div>
+    <div class="warning"><b>如何理解这些数字：</b>它们是 2026-08-13 横截面留组结果，说明模型能复现这一日的报价形状；不是未来交易日预测准确率，也不是对冲表现。需要更多日期的个股报价或其他报价方，才能检验时间外稳定性。</div>
+  </section>
+
+  <section class="section">
+    <h2>当前已实现与下一步</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag">已实现</span><ul><li>1–4M 个股基础波动率和二层报价调整模型。</li><li>50ETF / 300ETF 上市风险中性曲面特征。</li><li>绿色、琥珀、红色质量门控和 P→Q 权重降级。</li><li>执行价单调、凸性和 intrinsic/upper bounds 曲面约束。</li><li>共同 carry 核下的 IV、卖价和 JSON 证据导出。</li></ul></div>
+      <div class="card"><span class="tag gold">仍需完成</span><ul><li>更多日期的 Market Context 或多报价方数据。</li><li>统一复权、公司行动、停牌和 point-in-time 窗口。</li><li>真实借券可得性、未公告股息和更准确的 CNY 零息曲线。</li><li>每日自动刷新“新日期个股曲面”的推理服务。</li><li>2027 交易日历确认后再开放 5–6M。</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>可追溯文件</h2>
+    <p>页面中的模型规模、公式、质量门控和误差统计来自公开证据文件；当前页面本身不包含 API 凭证或模型权重。</p>
+    <div class="actions"><a class="button secondary" href="evidence/model_training_report_20260813.json">训练报告 JSON</a><a class="button secondary" href="evidence/listed_rn_oos_validation.json">上市曲面 OOS JSON</a><a class="button secondary" href="a-share-option-demo.html">打开可交互曲面</a></div>
+  </section>
+  <footer class="foot">FREERIDE · A-share OTC option research · 2026-08-13 model snapshot · 所有结果为 indicative research output，不构成投资建议或可执行交易报价。</footer>
+</main>
+</body>
+</html>
