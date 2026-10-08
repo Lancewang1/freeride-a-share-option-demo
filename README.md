@@ -7,7 +7,8 @@ Live demo: https://lancewang1.github.io/freeride-a-share-option-demo/
 ## Pages
 
 - `index.html` — project overview, model flow, validation and limitations.
-- `a-share-option-demo.html` — 2026-08-13 Market Context offer, three-source individual-stock IV surface, editable assumptions and a client pricer.
+- `a-share-option-demo.html` / `stock-demo.js` — 2026-08-13 Market Context offer, rotatable 3D stock surface, heatmaps and smile comparison across three sources, editable assumptions and a client pricer.
+- `vendor/plotly.min.js` — bundled Plotly library (MIT license notice included), so chart rendering needs no external CDN.
 - `live-market.html` — latest Tushare snapshot viewer, historical realized-volatility panel and a new-trade client pricer.
 - `latest-market-context.json` — dated public snapshot for five example A-shares; this file contains no Tushare credential.
 - `live-market.js` / `live-pricing.js` — browser validation, polling, snapshot import and the cash-flow pricing kernel.
@@ -15,9 +16,11 @@ Live demo: https://lancewang1.github.io/freeride-a-share-option-demo/
 - `surface-layers.js` — compact model-estimate and trailing-realized layers used by the static stock surface.
 - `evidence/` — reproducible training and out-of-sample validation summaries.
 
-The public Pages build does not call Tushare directly and never receives an API key. It displays the dated `latest-market-context.json` artifact and can import a client-generated snapshot. The local service can request Tushare server-side at `/api/market/ashare-live?ticker=000166`; configure `FREERIDE_MARKET_ORIGIN` before allowing a separately hosted page to call that endpoint.
+The public Pages build does not call Tushare directly and never receives an API key. It displays the dated `latest-market-context.json` artifact (latest update: 2026-10-08 closes) and can import a client-generated snapshot. The local service can request Tushare server-side at `/api/market/ashare-live?ticker=000166`; configure `FREERIDE_MARKET_ORIGIN` before allowing a separately hosted page to call that endpoint.
 
-Tushare `rt_k` is an optional entitlement. When it is unavailable (the current account returns code 40203), the adapter falls back to the latest completed `daily` close and labels its date and source. It does not call a stale quote “real time”. Daily history, `adj_factor`, `trade_cal` and `dividend` responses are validated, bounded and cached in memory. The 2026-08-13 Market Context surface and model are not silently relabelled as a live risk-neutral surface; a new行情日期 is a separate client-pricing scenario and requires customer vol/rate assumptions.
+Tushare `rt_k` is an optional entitlement. When it is unavailable (the current account returns code 40203), the adapter falls back to the latest completed `daily` close and labels its date and source. It does not call a stale quote “real time”. Daily history, `adj_factor`, `trade_cal` and `dividend` responses are validated, bounded and cached in memory. The 2026-08-13 Market Context surface and model are not silently relabelled as a live risk-neutral surface; a new market date is a separate client-pricing scenario and requires customer vol/rate assumptions.
+
+Both stock pages use `live-pricing.js` for forward and cash-flow valuation. The frozen stock page defaults to its dated government-reference curve, with client flat-rate overrides; the latest-market page requires a client rate input. Cash dividends are recalculated from their actual dates under the selected carry. Missing exchange-calendar coverage stops valuation, including with a manual volatility override. Invalid inputs clear prior results and disable export. The frozen page supports 1–4M; the 2026-10-08 scenario supports 1–2M until the verified calendar extends into 2027.
 
 ## Local preview
 

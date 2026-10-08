@@ -10,14 +10,29 @@
     const p = Math.exp(-x*x/2)/Math.sqrt(2*Math.PI)*t*(.319381530+t*(-.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429))));
     return x >= 0 ? 1-p : p;
   }
+  function referenceRate(curve, years) {
+    const nodes = curve?.nodes;
+    if (!Array.isArray(nodes) || !nodes.length || years < 0 || years > nodes[nodes.length-1].years) throw Error('参考利率曲线未覆盖现金流日期');
+    if (years <= nodes[0].years) return finite(nodes[0].continuous_rate_proxy, '参考利率', -.2, .5);
+    for (let i=1; i<nodes.length; i++) {
+      const a=nodes[i-1], b=nodes[i];
+      if (years <= b.years) {
+        const w=(years-a.years)/(b.years-a.years);
+        return finite(a.continuous_rate_proxy*(1-w)+b.continuous_rate_proxy*w, '参考利率', -.2, .5);
+      }
+    }
+    throw Error('参考利率插值失败');
+  }
   function price(market, p) {
     const s = market.schedule.find(s => s.tenor_months === p.tenor);
     if (!s || s.status !== 'AVAILABLE' || !s.actual_expiry_date || !s.payoff_settlement_date) throw Error('期限或支付日超出已核实交易日历，当前不估值。');
     const spot = finite(p.spot, 'Spot', .0001, 1e7), n = finite(p.notional, '本金', .01, 1e13);
     const k = finite(p.strike_ratio, 'Strike%', .01, 5), v = finite(p.vol, '波动率', 0, 10);
-    const r = finite(p.base_rate, '基准利率', -.2, .5);
-    const rf = r + finite(p.funding_bps, '融资加点', -2000, 5000)/10000;
-    const rd = r + finite(p.discount_bps, '贴现加点', -2000, 5000)/10000;
+    const funding = finite(p.funding_bps, '融资加点', -2000, 5000)/10000;
+    const discount = finite(p.discount_bps, '贴现加点', -2000, 5000)/10000;
+    const base = p.base_rate === null ? t => referenceRate(market.rate_curve, t) : () => finite(p.base_rate, '基准利率', -.2, .5);
+    if (p.base_rate === null && market.rate_curve?.as_of !== s.contract_start_date) throw Error('参考利率日期与估值日期不一致');
+    const rf = t => base(t)+funding, rd = t => base(t)+discount;
     const borrow = finite(p.borrow_bps, '借券成本', 0, 5000)/10000;
     const markup = finite(p.markup_bps, '额外商业加点', 0, 5000)/10000;
     const te = finite(s.actual_calendar_days, '到期天数', 1, 1000)/365;
@@ -36,12 +51,15 @@
         const tx = (Date.parse(e.ex_date+'T00:00:00Z')-start)/86400000/365;
         const ty = (Date.parse(e.pay_date+'T00:00:00Z')-start)/86400000/365;
         if (!Number.isFinite(tx) || !Number.isFinite(ty) || tx <= 0 || ty < tx) throw Error('分红日期无效');
-        divForward += finite(e.amount, '现金分红', 0, 1e5)*scale*Math.exp(rf*(te-ty)-borrow*(te-tx));
+        divForward += finite(e.amount, '现金分红', 0, 1e5)*scale*Math.exp(rf(te)*te-rf(ty)*ty-borrow*(te-tx));
       }
+    } else if (p.dividend_mode === 'pv') {
+      // Explicit client PV scenario replaces the dated cash schedule.
+      divForward = finite(p.dividend_pv, '现金分红 PV', 0, 1e5)*finite(p.dividend_scale, '股息乘数', 0, 5)*Math.exp((rf(te)-borrow)*te);
     } else throw Error('未知股息模式');
-    const growth = Math.exp((rf-borrow-q)*te), F = spot*growth-divForward, K = spot*k;
+    const growth = Math.exp((rf(te)-borrow-q)*te), F = spot*growth-divForward, K = spot*k;
     if (!(F > 0)) throw Error('现金分红扣减后远期非正，请复核输入。');
-    const dp = Math.exp(-rd*tp), ds = Math.exp(-rd*ts), st = v*Math.sqrt(tv);
+    const dp = Math.exp(-rd(tp)*tp), ds = Math.exp(-rd(ts)*ts), st = v*Math.sqrt(tv);
     if (!['call','put'].includes(p.option_type)) throw Error('期权类型无效');
     const call = p.option_type === 'call';
     let value;
@@ -54,6 +72,9 @@
     return {status:'INDICATIVE_SCENARIO',ticker:market.ticker,as_of:s.contract_start_date,
       snapshot_id:market.snapshot_id,quote_time:market.quote.trade_time,quote_source:market.quote.source,
       inputs:{...p},schedule:{...s},forward:F,strike:K,shares:n/spot,volatility:v,
+      reference_rate_at_expiry:base(te),funding_rate_at_expiry:rf(te),discount_rate_at_payoff:rd(ts),
+      dividend_pv_per_share:divForward/growth,forward_dividend_per_share:divForward,
+      rate_status:p.base_rate===null?'DATED_REFERENCE_CURVE':'CLIENT_FLAT_RATE',
       premium_df:dp,payoff_df:ds,variance_time:tv,model_offer:model,offer:model+markup,
       premium_cny:(model+markup)*n,pv_cny:(model+markup)*n*dp,
       volatility_status:p.vol_source==='realized'?'HISTORICAL_RV_SCENARIO_NOT_IV':'CLIENT_VOL_ASSUMPTION',

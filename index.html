@@ -71,15 +71,15 @@
         <h1>A股个股期权定价器</h1>
         <p>一个可审计的研究型演示：从历史行情生成独立波动率先验，接入上市 ETF 风险中性曲面，再用 Market Context 卖价等效 IV 校准普通欧式认购的最终卖价。</p>
         <div class="actions">
-          <a class="button" href="live-market.html">Tushare 最新行情与 Pricer</a>
-          <a class="button secondary" href="a-share-option-demo.html">打开 A 股 Market Context / IV 查看器</a>
+          <a class="button" href="a-share-option-demo.html">个股三维曲面与 Client Pricer</a>
+          <a class="button secondary" href="live-market.html">Tushare 最新行情与 Pricer</a>
           <a class="button secondary" href="etf-surface-demo.html">打开 ETF 风险中性曲面</a>
         </div>
       </div>
-      <div class="stamp"><strong>Research MVP</strong><span>数据截点：2026-08-13 Market Context；上市曲面快照至 2026-09-24</span></div>
+      <div class="stamp"><strong>Research MVP</strong><span>个股模型 / Market Context：2026-08-13<br>上市曲面：截至 2026-09-24<br>Tushare 收盘快照：2026-10-08</span></div>
     </section>
 
-    <div class="notice"><b>公开演示边界：</b>页面是静态研究展示，不连接 API、不保存凭证，也不是可执行交易报价。Market Context 的 IV 包含报价方商业影响；未公告股息、真实借券、精确零息曲线和 2027 年交易日历仍需补充。</div>
+    <div class="notice"><b>演示数据：</b>公开页默认读取已发布快照。Tushare 本地服务可刷新行情，当前盘中权限未开通，使用有日期标注的完整收盘价。更新行情不会自动刷新 2026-08-13 个股模型曲面；所有价格为情景估值。</div>
 
     <section class="grid">
       <article class="card"><h3>产品范围</h3><p>人民币普通欧式认购、现金结算，无障碍和敲出。本金为 <code>S₀ × 股数</code>，Final Offer 是包含商业加点的卖价。</p></article>
@@ -112,7 +112,7 @@
         <div class="metric"><span>完整期限</span><b>1–3M</b></div>
         <div class="metric"><span>快照日期</span><b>4 / 6</b></div>
         <div class="metric"><span>ETF transfer check</span><b>12</b></div>
-        <p class="small">股票样本支持正向 P→Q 调整，但 ETF 样本太少，生产权重尚未锁定；<code>w=0.25</code> 仅保留为研究参数。</p>
+        <p class="small">多日测试使用未来 realized 标签，检验波动率预测及权重敏感性，不能替代个股 IV 的时间外验证。ETF 样本仍少；<code>w=0.25</code> 仅为研究参数。</p>
       </article>
     </section>
 
@@ -148,7 +148,7 @@
     </section>
 
     <footer>
-      FREERIDE · A-share OTC option research demo · Static GitHub Pages build · Last updated 2026-10-04<br>
+      FREERIDE · A-share OTC option research demo · Static GitHub Pages build · Last updated 2026-10-08<br>
       页面输出仅用于研究和模型审阅，不构成投资建议或可执行交易报价。
     </footer>
   </main>
